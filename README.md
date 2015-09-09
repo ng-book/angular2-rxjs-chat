@@ -4,6 +4,8 @@
 
 # Angular 2 RxJS Chat
 
+[![Join the chat at https://gitter.im/ng-book/angular2-rxjs-chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ng-book/angular2-rxjs-chat?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 > An Angular 2 chat app using Angular 2, RxJS, Webpack, TypeScript, Services, Injectables, Karma, Forms, scss, and tslint by the [ng-book 2 team](https://ng-book.com/2)
 
 This repo shows an example chat application using RxJS and Angular 2. The goal is to show how to use the Observables data architecture pattern within Angular 2. It also features:
