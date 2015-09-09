@@ -1,13 +1,14 @@
 {
-  "name": "angular2-webpack-typescript",
-  "version": "0.0.1",
-  "description": "",
+  "name": "angular2-rxjs-chat",
+  "version": "1.0.0",
+  "description": "Chat App with Angular 2 and RxJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "./node_modules/.bin/webpack-dev-server",
+    "test": "karma start"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Nate Murray <nate@fullstack.io>",
+  "license": "MIT",
   "devDependencies": {
     "awesome-typescript-loader": "^0.12.0",
     "jasmine-core": "^2.3.4",
