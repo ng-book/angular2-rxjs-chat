@@ -49,9 +49,9 @@ The app has three models:
 
 And there are three services, one for each model:
 
-* `MessagesService`
-* `ThreadsService`
-* `UserService`
+* `MessagesService` - manages streams of `Message`s
+* `ThreadsService` - manages streams of `Thread`s
+* `UserService` - manages a stream of the current `User`
 
 There are also three top-level components:
 
@@ -63,9 +63,13 @@ There are also three top-level components:
   <img src="app/images/readme/rx-chat-top-level-components.png" alt="Angular 2 RxJS Chat" width="500" height="360"/>
 </p>
 
-## Services
+## Services Manage Observables
 
 Each service publishes data as RxJS streams. The service clients subscribe to these streams to be notified of changes. 
+
+The `MessagesService` is the backbone of the application. All new messages are added to the `newMessages` stream and, more or less, all streams are derived from listening to `newMessages`. Even the `Thread`s exposed by the `ThreadsService` are created by listening to the stream of `Message`s.
+
+There are several other helpful streams that the services expose:
 
 For example, the `MessagesService` exposes the `messages` stream which is a stream of _the list of the all current messages_. That is, `messages` emits an array for each record.
 
