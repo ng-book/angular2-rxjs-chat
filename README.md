@@ -40,8 +40,8 @@ Then visit [http://localhost:8080](http://localhost:8080) in your browser.
 The app has three models:
 
 * [`Message`](app/ts/models.ts#L27) - holds individual chat messages
-* `Thread` - holds metadata for a group of `Message`s
-* `User` - holds data about an individual user
+* [`Thread`](app/ts/models.ts#L12) - holds metadata for a group of `Message`s
+* [`User`](app/ts/models.ts#L3) - holds data about an individual user
 
 <p align="center">
   <img src="app/images/readme/rx-chat-models.png" alt="Model Diagram" width="500" height="119"/>
@@ -49,15 +49,15 @@ The app has three models:
 
 And there are three services, one for each model:
 
-* `MessagesService` - manages streams of `Message`s
-* `ThreadsService` - manages streams of `Thread`s
-* `UserService` - manages a stream of the current `User`
+* [`MessagesService`](app/ts/services/MessagesService.ts) - manages streams of `Message`s
+* [`ThreadsService`](app/ts/services/ThreadsService.ts) - manages streams of `Thread`s
+* [`UserService`](app/ts/services/UserService.ts) - manages a stream of the current `User`
 
 There are also three top-level components:
 
-* `ChatNavBar` - for the top navigation bar and unread messages count
-* `ChatThreads` - for our clickable list of threads 
-* `ChatWindow` - where we hold our current conversation
+* [`ChatNavBar`](app/ts/components/ChatNavBar.ts) - for the top navigation bar and unread messages count
+* [`ChatThreads`](app/ts/components/ChatThreads.ts) - for our clickable list of threads 
+* [`ChatWindow`](app/ts/components/ChatWindow.ts) - where we hold our current conversation
 
 <p align="center">
   <img src="app/images/readme/rx-chat-top-level-components.png" alt="Angular 2 RxJS Chat" width="500" height="360"/>
@@ -79,12 +79,13 @@ Understanding how RxJS streams can be tricky, but this code is heavily commented
 
 ## Bots
 
-<img align="right" src="app/images/readme/rx-chat-echo-bot.png" alt="Angular 2 RxJS Chat Bots" width="346" height="348"/>
 This app implements a few simple chat bots. For instance:
 
 * Echo bot
 * Reversing bot
 * Waiting bot
+
+<img src="app/images/readme/rx-chat-echo-bot.png" alt="Angular 2 RxJS Chat Bots" width="346" height="348"/>
 
 <div style="clear:both"></div>
 
@@ -208,7 +209,7 @@ ___
 # ng-book 2
 
 <a href="https://ng-book.com/2">
-<img align="right" src="app/images/readme/ng-book-2-as-book-cover-pigment-550.png" alt="ng-book 2" width="326" height="550" />
+<img align="right" src="app/images/readme/ng-book-2-as-book-cover-pigment.png" alt="ng-book 2" width="148" height="250" />
 </a>
 
 This repo was written and is maintained by the [ng-book 2](https://ng-book.com/2) team. In the book we talk about each line of code in this app and explain why it's there and how it works.
