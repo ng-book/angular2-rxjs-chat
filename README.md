@@ -2,15 +2,13 @@
   <img src="app/images/logos/Angular2RxJSChatHeaderImage.png" alt="Angular 2 RxJS Chat" width="500" height="300"/>
 </p>
 
-# Angular 2 RxJS Chat
+# Angular 2 RxJS Chat [![Join the chat at https://gitter.im/ng-book/angular2-rxjs-chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ng-book/angular2-rxjs-chat?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[![Join the chat at https://gitter.im/ng-book/angular2-rxjs-chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ng-book/angular2-rxjs-chat?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-> An Angular 2 chat app using Angular 2, RxJS, Webpack, TypeScript, Services, Injectables, Karma, Forms, scss, and tslint by the [ng-book 2 team](https://ng-book.com/2)
+> An Angular 2 chat app using [Angular 2](https://angular.io/), [RxJS](https://github.com/Reactive-Extensions/RxJS), [Webpack](https://webpack.github.io/), [TypeScript](http://www.typescriptlang.org/), Services, Injectables, [Karma](http://karma-runner.github.io/), Forms, [SCSS](http://sass-lang.com/), and [tslint](http://palantir.github.io/tslint/) by the [ng-book 2 team](https://ng-book.com/2)
 
 This repo shows an example chat application using RxJS and Angular 2. The goal is to show how to use the Observables data architecture pattern within Angular 2. It also features:
 
-* Webpack configuration with TypeScript, Karma, Scss, and tslint
+* Webpack configuration with TypeScript, Karma, SCSS, and tslint
 * Writing async components that work with RxJS
 * How to write injectable services in Angular 2
 * And much more
@@ -41,7 +39,7 @@ Then visit [http://localhost:8080](http://localhost:8080) in your browser.
 
 The app has three models:
 
-* `Message` - holds individual chat messages
+* [`Message`](app/ts/models.ts#L27) - holds individual chat messages
 * `Thread` - holds metadata for a group of `Message`s
 * `User` - holds data about an individual user
 
@@ -203,7 +201,7 @@ If you'd like to contribute, feel free to submit a pull request and we'll likely
 
 ## Getting Help
 
-If you're having trouble getting this project running, feel free to open an issue, join us on Gitter, or email us!
+If you're having trouble getting this project running, feel free to [open an issue](https://github.com/ng-book/angular2-rxjs-chat/issues), join us on [Gitter](https://gitter.im/ng-book/angular2-rxjs-chat?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge), or [email us](mailto:us@fullstack.io)!
 
 ___
 
