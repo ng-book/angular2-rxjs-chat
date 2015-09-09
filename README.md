@@ -86,6 +86,8 @@ This app implements a few simple chat bots. For instance:
 * Reversing bot
 * Waiting bot
 
+<div style="clear:both"></div>
+
 ## File Structure
 
 Here's an overview of how the files are laid out in this project:
@@ -212,6 +214,8 @@ ___
 This repo was written and is maintained by the [ng-book 2](https://ng-book.com/2) team. In the book we talk about each line of code in this app and explain why it's there and how it works.
 
 This app is only one of several apps we have in the book. If you're looking to learn Angular 2, there's no faster way than by spending a few hours with ng-book 2.
+
+<div style="clear:both"></div>
 
 ## License
  [MIT](/LICENSE.md)
