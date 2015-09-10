@@ -2,7 +2,7 @@
   <img src="app/images/logos/Angular2RxJSChatHeaderImage.png" alt="Angular 2 RxJS Chat" width="500" height="300"/>
 </p>
 
-# Angular 2 RxJS Chat [![Join the chat at https://gitter.im/ng-book](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ng-book?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# Angular 2 RxJS Chat [![Join the chat at https://gitter.im/ng-book/ng-book](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ng-book/ng-book?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 > An Angular 2 chat app using [Angular 2](https://angular.io/), [RxJS](https://github.com/Reactive-Extensions/RxJS), [Webpack](https://webpack.github.io/), [TypeScript](http://www.typescriptlang.org/), Services, Injectables, [Karma](http://karma-runner.github.io/), Forms, [SCSS](http://sass-lang.com/), and [tslint](http://palantir.github.io/tslint/) by the [ng-book 2 team](https://ng-book.com/2)
 
@@ -202,7 +202,7 @@ If you'd like to contribute, feel free to submit a pull request and we'll likely
 
 ## Getting Help
 
-If you're having trouble getting this project running, feel free to [open an issue](https://github.com/ng-book/angular2-rxjs-chat/issues), join us on [Gitter](https://gitter.im/ng-book?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge), or [email us](mailto:us@fullstack.io)!
+If you're having trouble getting this project running, feel free to [open an issue](https://github.com/ng-book/angular2-rxjs-chat/issues), join us on [Gitter](https://gitter.im/ng-book/ng-book?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge), or [email us](mailto:us@fullstack.io)!
 
 ___
 
