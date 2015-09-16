@@ -10,7 +10,7 @@
   "author": "Nate Murray <nate@fullstack.io>",
   "license": "MIT",
   "devDependencies": {
-    "awesome-typescript-loader": "^0.12.0",
+    "awesome-typescript-loader": "0.12.0",
     "jasmine-core": "^2.3.4",
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.1",
@@ -21,17 +21,17 @@
     "tsd": "^0.6.3",
     "tslint-loader": "^1.0.1",
     "typescript": "1.5.3",
-    "webpack": "^1.8.11",
-    "webpack-notifier": "^1.2.1"
+    "webpack-notifier": "1.2.1"
   },
   "dependencies": {
-    "angular2": "^2.0.0-alpha.35",
-    "bootstrap-sass": "^3.3.5",
+    "angular2": "2.0.0-alpha.35",
+    "base64id": "^0.1.0",
+    "bootstrap-sass": "3.3.5",
     "chunk-manifest-webpack-plugin": "0.0.1",
     "css-loader": "^0.15.5",
-    "es5-shim": "^4.1.11",
-    "es6-shim": "^0.33.2",
-    "es6-symbol": "^2.0.1",
+    "es5-shim": "4.1.11",
+    "es6-shim": "0.33.2",
+    "es6-symbol": "2.0.1",
     "extract-text-webpack-plugin": "^0.8.2",
     "file-loader": "^0.8.4",
     "html-webpack-plugin": "^1.6.0",
@@ -46,7 +46,7 @@
     "optimist": "^0.6.1",
     "raw-loader": "^0.5.1",
     "reflect-metadata": "^0.1.0",
-    "rx": "^2.2.28",
+    "rx": "2.5.3",
     "sass-loader": "^1.0.2",
     "script-loader": "^0.6.1",
     "style-loader": "^0.12.3",
@@ -55,7 +55,7 @@
     "uuid": "^2.0.1",
     "val-loader": "^0.5.0",
     "webpack": "^1.10.1",
-    "webpack-dev-server": "^1.10.1",
-    "webpack-reload-plugin": "^0.1.2"
+    "webpack-dev-server": "1.10.1",
+    "webpack-reload-plugin": "0.1.2"
   }
 }
