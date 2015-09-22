@@ -46,11 +46,6 @@ function makeConfig(options) {
       vendor: [
         "vendor.js",
       ],
-      // vendor: [
-      //   "vendor/traceur-runtime-0.0.87.js",
-      //   "vendor/system-0.16.11.js",
-      //   "vendor/angular2.dev.2.0.0-alpha.30.js"
-      // ],
       bundle: entry
     },
     stats: {
