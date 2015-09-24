@@ -17,6 +17,8 @@ This repo shows an example chat application using RxJS and Angular 2. The goal i
   <img src="app/images/readme/full-chat-preview.png" alt="Angular 2 RxJS Chat" width="800" height="577"/>
 </p>
 
+> Try the live [demo here](http://rxjs.ng-book.com)
+
 ## Quick start
 
 ```bash
