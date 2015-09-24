@@ -14,8 +14,8 @@ import * as _ from "underscore";
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">
-          ng-book 2
+        <a class="navbar-brand" href="https://ng-book.com/2">
+          <img src="${require("images/logos/ng-book-2-minibook.png")}"></img> ng-book 2
         </a>
       </div>
       <p class="navbar-text navbar-right">
