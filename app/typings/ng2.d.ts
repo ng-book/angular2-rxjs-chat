@@ -1,4 +1,4 @@
-declare module "angular2/pipes" {
+declare module "angular2/core" {
   class AsyncPipe {
     constructor(ref?: any);
     _latestValue: any;

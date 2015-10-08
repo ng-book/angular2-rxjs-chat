@@ -8,21 +8,21 @@ import {Component, bootstrap, View} from "angular2/angular2";
 /*
  * Components
  */
-import {ChatNavBar} from "components/ChatNavBar";
-import {ChatThreads} from "components/ChatThreads";
-import {ChatWindow} from "components/ChatWindow";
+import {ChatNavBar} from "./components/ChatNavBar";
+import {ChatThreads} from "./components/ChatThreads";
+import {ChatWindow} from "./components/ChatWindow";
 
 /*
  * Injectables
  */
-import {servicesInjectables} from "services/services";
-import {utilInjectables} from "util/util";
+import {servicesInjectables} from "./services/services";
+import {utilInjectables} from "./util/util";
 
 /*
  * Services
  */
-import {MessagesService, ThreadsService, UserService} from "services/services";
-import {ChatExampleData} from "ChatExampleData";
+import {MessagesService, ThreadsService, UserService} from "./services/services";
+import {ChatExampleData} from "./ChatExampleData";
 
 /*
  * Webpack

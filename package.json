@@ -24,7 +24,7 @@
     "webpack-notifier": "1.2.1"
   },
   "dependencies": {
-    "angular2": "2.0.0-alpha.35",
+    "angular2": "2.0.0-alpha.39",
     "base64id": "^0.1.0",
     "bootstrap-sass": "3.3.5",
     "chunk-manifest-webpack-plugin": "0.0.1",

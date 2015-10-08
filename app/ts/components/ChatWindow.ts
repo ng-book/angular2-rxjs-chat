@@ -1,5 +1,5 @@
 /// <reference path="../../typings/app.d.ts" />
-import {Component, View, NgFor, NgIf, NgClass, LifecycleEvent,
+import {Component, View, NgFor, NgIf, NgClass, OnInit,
         FORM_DIRECTIVES, ElementRef} from "angular2/angular2";
 import {MessagesService,
         ThreadsService,
@@ -10,7 +10,7 @@ import * as Rx from "rx";
 import {User, Thread, Message} from "models";
 
 @Component({
-  lifecycle: [ LifecycleEvent.onInit ],
+
   properties: ["message"],
   selector: "chat-message"
 })
@@ -40,7 +40,7 @@ import {User, Thread, Message} from "models";
   </div>
   `
 })
-export class ChatMessage {
+export class ChatMessage implements OnInit {
   message: Message;
   currentUser: User;
   incoming: boolean;
@@ -62,7 +62,7 @@ export class ChatMessage {
 }
 
 @Component({
-  lifecycle: [ LifecycleEvent.onInit ],
+
   selector: "chat-window"
 })
 @View({
@@ -116,7 +116,7 @@ export class ChatMessage {
     </div>
   `
 })
-export class ChatWindow {
+export class ChatWindow implements OnInit {
   messages: Rx.Observable<any>;
   currentThread: Thread;
   draftMessage: Message;

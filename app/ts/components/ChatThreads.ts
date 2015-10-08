@@ -1,13 +1,13 @@
 /// <reference path="../../typings/app.d.ts" />
 import {Component, View, NgFor, NgIf,
-        LifecycleEvent} from "angular2/angular2";
+        OnInit} from "angular2/angular2";
 import {ThreadsService} from "../services/services";
 import {RxPipe} from "../util/RxPipe";
 import * as Rx from "rx";
 import {Thread} from "models";
 
 @Component({
-  lifecycle: [ LifecycleEvent.onInit ],
+  
   properties: ["thread"],
   selector: "chat-thread"
 })
@@ -29,7 +29,7 @@ import {Thread} from "models";
   </div>
   `
 })
-class ChatThread {
+class ChatThread implements OnInit {
   thread: Thread;
   selected: boolean = false;
 

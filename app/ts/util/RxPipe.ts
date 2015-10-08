@@ -19,7 +19,7 @@
  * @class
  */
 import {Pipe, bind, ChangeDetectorRef} from "angular2/angular2";
-import {AsyncPipe} from "angular2/pipes";
+import {AsyncPipe} from "angular2/core";
 import {Observable} from "rx";
 
 function isObservable(obs: any): boolean {
