@@ -131,7 +131,7 @@ function makeConfig(options) {
         { test: /\.html$/,    loader: "raw" },
         { test: /^index\.html$/, loader: "file-loader?name=[path][name].[ext]" },
         { test: /\.ts$/, loader: 'awesome-typescript-loader?ignoreWarnings[]=2304', exclude: [ /test/, /node_modules/]},
-        { test: /vendor\/.*\.(css|js)/, loader: 'file-loader?name=[path][name].[ext]', exclude: [/node_modules/]},
+        { test: /vendor(\/|\\).*\.(css|js)/, loader: 'file-loader?name=[path][name].[ext]', exclude: [/node_modules/]},
         { test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,    loader: "file-loader?mimetype=application/font-woff&name=[path][name].[ext]" },
         { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,         loader: "file-loader?mimetype=application/x-font-ttf&name=[path][name].[ext]" },
         { test: /\.eot(\?v=\d+\.\d+\.\d+)?\??$/,      loader: "file-loader?mimetype=application/vnd.ms-fontobject&name=[path][name].[ext]" },
@@ -140,7 +140,7 @@ function makeConfig(options) {
       ],
       noParse: [
         /\.min\.js/,
-        /vendor\/.*?\.(js|css)$/
+          /vendor(\/||\\).*?\.(js|css)$/
       ]
     },
     tslint: {
