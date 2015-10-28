@@ -4,7 +4,7 @@ import {Component, View, NgFor, NgIf,
 import {ThreadsService} from "../services/services";
 import {RxPipe} from "../util/RxPipe";
 import * as Rx from "rx";
-import {Thread} from "models";
+import {Thread} from "../models";
 
 @Component({
   lifecycle: [ LifecycleEvent.onInit ],
