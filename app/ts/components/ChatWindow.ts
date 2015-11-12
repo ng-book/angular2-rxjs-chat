@@ -7,7 +7,7 @@ import {MessagesService,
 import {RxPipe} from "../util/RxPipe";
 import {FromNowPipe} from "../util/FromNowPipe";
 import * as Rx from "rx";
-import {User, Thread, Message} from "models";
+import {User, Thread, Message} from "../models";
 
 @Component({
 

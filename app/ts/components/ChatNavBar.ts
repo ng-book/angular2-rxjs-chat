@@ -1,7 +1,7 @@
 /// <reference path="../../typings/app.d.ts" />
 import {Component, View, OnInit} from "angular2/angular2";
 import {MessagesService, ThreadsService} from "../services/services";
-import {Message, Thread} from "models";
+import {Message, Thread} from "../models";
 import * as _ from "underscore";
 
 @Component({

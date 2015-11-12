@@ -1,6 +1,6 @@
 /* tslint:disable:max-line-length */
 /// <reference path="../typings/app.d.ts" />
-import {User, Thread, Message} from "models";
+import {User, Thread, Message} from "./models";
 import {MessagesService, ThreadsService,
         UserService} from "./services/services";
 import * as moment from "moment";

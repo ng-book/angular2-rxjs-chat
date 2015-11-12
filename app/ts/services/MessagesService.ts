@@ -1,7 +1,7 @@
 /// <reference path="../../typings/app.d.ts" />
 import {Injectable, bind} from "angular2/angular2";
 import * as Rx from "rx";
-import {User, Thread, Message} from "models";
+import {User, Thread, Message} from "../models";
 
 let initialMessages: Message[] = [];
 

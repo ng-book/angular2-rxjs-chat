@@ -1,8 +1,8 @@
 /// <reference path="../../typings/app.d.ts" />
 import {Injectable, bind} from "angular2/angular2";
 import * as Rx from "rx";
-import {Thread, Message} from "models";
-import {MessagesService} from "MessagesService";
+import {Thread, Message} from "../models";
+import {MessagesService} from "./MessagesService";
 import * as _ from "underscore";
 
 @Injectable()
@@ -27,7 +27,7 @@ export class ThreadsService {
     this.threads = messagesService.messages
       .map( (messages: Message[]) => {
         let threads: {[key: string]: Thread} = {};
-        // Store the message's thread it in our accumulator `threads`
+        // Store the message's thread in our accumulator `threads`
         messages.map((message: Message) => {
           threads[message.thread.id] = threads[message.thread.id] ||
             message.thread;
