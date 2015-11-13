@@ -8,7 +8,10 @@
     <script src="/_/vendor/system-0.16.11.js"></script>
     <script src="/_/vendor/angular2.dev.2.0.0-alpha.46.js"></script>
     -->
-    <script src="/lib/es6-shim.js"></script>
+    <!--
+    <script src="/vendor.js"></script>
+    -->
+    <script src="/vendor/es6-shim.js"></script>
 
     {% for (var css in o.htmlWebpackPlugin.files.css) { %}
       <link href="{%=o.htmlWebpackPlugin.files.css[css] %}" rel="stylesheet">
