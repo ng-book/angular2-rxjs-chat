@@ -9,6 +9,9 @@
     "noLib": false,
     "emitDecoratorMetadata": true
   },
+  "filesGlob": [
+      "./app/ts/services/**/*.ts"
+  ],
   "files": [
     "./app/ts/app.ts"
   ]

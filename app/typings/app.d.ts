@@ -2,8 +2,6 @@
  * Include types from npm
  */ 
 
-/// <reference path="../../node_modules/rx/ts/rx.all.d.ts" />
-
 /* 
  * tsd types
  */ 
