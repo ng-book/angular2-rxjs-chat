@@ -38,6 +38,7 @@ function makeConfig(options) {
     displayErrorDetails: true,
     context: __dirname,
     entry: {
+      vendor: ['vendor.js'],
       angular: [
         '@reactivex/rxjs',
         'zone.js',
@@ -91,23 +92,25 @@ function makeConfig(options) {
         // contentImage: path.join(appDir, 'images/notifier.png')
       }),
     ],
-    // resolveLoader: {
-    //   root: path.join(__dirname, 'node_modules'),
-    //   modulesDirectories: ['node_modules'],
-    //   fallback: path.join(__dirname, "node_modules")
-    // },
+    resolveLoader: {
+      root: path.join(__dirname, 'node_modules'),
+      modulesDirectories: ['node_modules'],
+      fallback: path.join(__dirname, "node_modules")
+    },
     resolve: {
       root: [path.resolve(cwd)],
-      // modulesDirectories: [
-      //   'node_modules', 'app', 'app/ts', '.'
-      // ],
+      modulesDirectories: [
+        'node_modules', 'app', 'app/ts', '.'
+      ],
       extensions: ["", ".ts", ".js", ".json", ".css"],
       alias: {
         'rx': '@reactivex/rxjs',
+        // 'es6-shim': './lib/es6-shim.js',
         'app': 'app'
       }
     },
     externals: {
+      // "file-loader!vendor/es6-shim.js": "es6Shim",
       // "file-loader!vendor/traceur-runtime-0.0.87.js": "traceur",
       // "file-loader!vendor/system-0.16.11.js": "systemjs",
       // "file-loader!vendor/es6-module-loader-0.16.6.js": "es6ModuleLoader",
@@ -134,8 +137,9 @@ function makeConfig(options) {
         { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,         loader: "url-loader" },
         { test: /\.html$/,    loader: "raw" },
         { test: /^index\.html$/, loader: "file-loader?name=[path][name].[ext]" },
+        // { test: /\.ts$/, loader: 'awesome-typescript-loader?ignoreWarnings[]=2304&compiler=' + __dirname + '/node_modules/typescript/bin/tsc', exclude: [ /test/, /node_modules/]},
         { test: /\.ts$/, loader: 'ts-loader?ignoreWarnings[]=2304', exclude: [ /test/, /node_modules/]},
-        { test: /vendor[\/\\].*\.(css|js)/, loader: 'file-loader?name=[path][name].[ext]', exclude: [/node_modules/]},
+        { test: /vendor\/.*\.(css|js)/, loader: 'file-loader?name=[path][name].[ext]', exclude: [/node_modules/]},
         { test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,    loader: "file-loader?mimetype=application/font-woff&name=[path][name].[ext]" },
         { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,         loader: "file-loader?mimetype=application/x-font-ttf&name=[path][name].[ext]" },
         { test: /\.eot(\?v=\d+\.\d+\.\d+)?\??$/,      loader: "file-loader?mimetype=application/vnd.ms-fontobject&name=[path][name].[ext]" },
