@@ -1,6 +1,6 @@
 /// <reference path="../../typings/app.d.ts" />
 import {Injectable, bind} from "angular2/angular2";
-import * as Rx from "rx";
+import * as Rx from "@reactivex/rxjs";
 import {User} from "../models";
 
 /**
@@ -12,7 +12,7 @@ export class UserService {
   currentUser: Rx.Subject<User> = new Rx.BehaviorSubject<User>(null);
 
   public setCurrentUser(newUser: User): void {
-    this.currentUser.onNext(newUser);
+    this.currentUser.next(newUser);
   }
 }
 

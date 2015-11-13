@@ -30,19 +30,20 @@ export class MessagesService {
   constructor() {
     this.messages = this.updates
       // watch the updates and accumulate operations on the messages
-      .scan(initialMessages, (messages: Message[],
+      .scan((messages: Message[],
               operation: IMessagesOperation) => {
         return operation(messages);
-      })
+              }, initialMessages)
       // make sure we can share the most recent list of messages across anyone
       // who's interested in subscribing and cache the last known list of
       // messages
-      .shareReplay(1);
+      .shareReplay(1, Number.POSITIVE_INFINITY);
+      // .shareReplay(1);
 
     // `create` takes a Message and then puts an operation (the inner function)
     // on the `updates` stream to add the Message to the list of messages.
     //
-    // That is, for each item that gets added to `create` (by using `onNext`)
+    // That is, for each item that gets added to `create` (by using `next`)
     // this stream emits a concat operation function.
     //
     // Next we subscribe `this.updates` to listen to this stream, which means
@@ -86,7 +87,7 @@ export class MessagesService {
 
   // an imperative function call to this action stream
   addMessage(message: Message): void {
-    this.newMessages.onNext(message);
+    this.newMessages.next(message);
   }
 
   messagesForThreadUser(thread: Thread, user: User): Rx.Observable<Message> {

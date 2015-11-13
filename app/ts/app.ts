@@ -12,21 +12,22 @@ import {ChatNavBar} from "./components/ChatNavBar";
 import {ChatThreads} from "./components/ChatThreads";
 import {ChatWindow} from "./components/ChatWindow";
 
-/*
- * Injectables
- */
+// /*
+//  * Injectables
+//  */
 import {servicesInjectables} from "./services/services";
 import {utilInjectables} from "./util/util";
 
-/*
- * Services
- */
+// /*
+//  * Services
+//  */
 import {MessagesService, ThreadsService, UserService} from "./services/services";
 import {ChatExampleData} from "./ChatExampleData";
 
-/*
- * Webpack
- */
+// /*
+//  * Webpack
+//  */
+
 require("css/styles.scss");
 
 @Component({
@@ -56,3 +57,4 @@ class ChatApp {
 }
 
 bootstrap(ChatApp, [ servicesInjectables, utilInjectables ]);
+

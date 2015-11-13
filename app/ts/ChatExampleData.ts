@@ -4,13 +4,14 @@ import {User, Thread, Message} from "./models";
 import {MessagesService, ThreadsService,
         UserService} from "./services/services";
 import * as moment from "moment";
+import * as Rx from "@reactivex/rxjs";
 
 // the person using the app us Juliet
-let me: User      = new User("Juliet", require("images/avatars/female-avatar-1.png"));
-let ladycap: User = new User("Lady Capulet", require("images/avatars/female-avatar-2.png"));
-let echo: User    = new User("Echo Bot", require("images/avatars/male-avatar-1.png"));
-let rev: User     = new User("Reverse Bot", require("images/avatars/female-avatar-4.png"));
-let wait: User    = new User("Waiting Bot", require("images/avatars/male-avatar-2.png"));
+let me: User      = new User("Juliet", require<string>("images/avatars/female-avatar-1.png"));
+let ladycap: User = new User("Lady Capulet", require<string>("images/avatars/female-avatar-2.png"));
+let echo: User    = new User("Echo Bot", require<string>("images/avatars/male-avatar-1.png"));
+let rev: User     = new User("Reverse Bot", require<string>("images/avatars/female-avatar-4.png"));
+let wait: User    = new User("Waiting Bot", require<string>("images/avatars/male-avatar-2.png"));
 
 let tLadycap: Thread = new Thread("tLadycap", ladycap.name, ladycap.avatarSrc);
 let tEcho: Thread    = new Thread("tEcho", echo.name, echo.avatarSrc);
@@ -56,7 +57,8 @@ export class ChatExampleData {
               userService: UserService): void {
 
     // TODO make `messages` hot
-    messagesService.messages.subscribe(Rx.Observer.create());
+    // messagesService.messages.subscribe(Rx.Observer.create());
+    messagesService.messages.subscribe(() => {});
 
     // set "Juliet" as the current user
     userService.setCurrentUser(me);
