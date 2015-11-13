@@ -20,7 +20,7 @@
  */
 import {Pipe, bind, ChangeDetectorRef} from "angular2/angular2";
 import {AsyncPipe} from "angular2/core";
-import {Observable} from "rx";
+import {Observable} from "@reactivex/rxjs";
 
 function isObservable(obs: any): boolean {
   return obs && typeof obs.subscribe === "function";

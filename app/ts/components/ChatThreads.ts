@@ -3,7 +3,7 @@ import {Component, View, NgFor, NgIf,
         OnInit} from "angular2/angular2";
 import {ThreadsService} from "../services/services";
 import {RxPipe} from "../util/RxPipe";
-import * as Rx from "rx";
+import * as Rx from "@reactivex/rxjs";
 import {Thread} from "../models";
 
 @Component({

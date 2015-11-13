@@ -1,6 +1,6 @@
 /// <reference path="../../typings/app.d.ts" />
 import {Injectable, bind} from "angular2/angular2";
-import * as Rx from "rx";
+import * as Rx from "@reactivex/rxjs";
 import {Thread, Message} from "../models";
 import {MessagesService} from "./MessagesService";
 import * as _ from "underscore";

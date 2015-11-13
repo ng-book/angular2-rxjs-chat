@@ -6,7 +6,7 @@ import {MessagesService,
         UserService} from "../services/services";
 import {RxPipe} from "../util/RxPipe";
 import {FromNowPipe} from "../util/FromNowPipe";
-import * as Rx from "rx";
+import * as Rx from "@reactivex/rxjs";
 import {User, Thread, Message} from "../models";
 
 @Component({
