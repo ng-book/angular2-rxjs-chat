@@ -11,6 +11,7 @@
   "license": "MIT",
   "devDependencies": {
     "awesome-typescript-loader": "0.12.0",
+    "ts-loader": "0.6.0",
     "chunk-manifest-webpack-plugin": "0.0.1",
     "css-loader": "^0.15.5",
     "extract-text-webpack-plugin": "^0.8.2",
@@ -36,7 +37,7 @@
     "traceur-loader": "^0.6.3",
     "tsd": "^0.6.3",
     "tslint-loader": "^1.0.1",
-    "typescript": "1.5.3",
+    "typescript": "1.6.2",
     "url-loader": "^0.5.6",
     "val-loader": "^0.5.0",
     "webpack": "^1.10.1",
