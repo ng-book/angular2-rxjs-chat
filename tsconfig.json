@@ -1,18 +1,19 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "declaration": false,
-    "noImplicitAny": false,
-    "removeComments": true,
-    "experimentalDecorators": true,
-    "noLib": false,
-    "emitDecoratorMetadata": true
-  },
-  "filesGlob": [
-      "./app/ts/services/**/*.ts"
-  ],
-  "files": [
-    "./app/ts/app.ts"
-  ]
+    "version": "1.6.2",
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noLib": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true
+    },
+    "filesGlob": [
+        "./**/*.ts",
+        "!./node_modules/**/*.ts"
+    ],
+    "files": [
+    ]
 }
