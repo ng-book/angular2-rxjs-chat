@@ -19,8 +19,7 @@ export class MessagesService {
   // `updates` receives _operations_ to be applied to our `messages`
   // it's a way we can perform changes on *all* messages (that are currently 
   // stored in `messages`)
-  updates: Subject<any> =
-    new Subject<any>();
+  updates: Subject<any> = new Subject<any>();
 
   // action streams
   create: Subject<Message> = new Subject<Message>();
@@ -32,15 +31,13 @@ export class MessagesService {
       .scan((messages: Message[],
               operation: IMessagesOperation) => {
         return operation(messages);
-              }, initialMessages)
+              },
+            initialMessages)
       // make sure we can share the most recent list of messages across anyone
       // who's interested in subscribing and cache the last known list of
       // messages
-
-      // TODORx
-      // .shareReplay(1, Number.POSITIVE_INFINITY);
-      // ReplaySubject - multicast? - publishReplay
-      // .shareReplay(1);
+      .publishReplay(1)
+      .refCount();
 
     // `create` takes a Message and then puts an operation (the inner function)
     // on the `updates` stream to add the Message to the list of messages.

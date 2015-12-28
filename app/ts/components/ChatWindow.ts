@@ -1,9 +1,13 @@
-import {Component, OnInit, ElementRef} from 'angular2/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  ChangeDetectionStrategy
+} from 'angular2/core';
 import {FORM_DIRECTIVES} from 'angular2/common';
 import {MessagesService,
         ThreadsService,
         UserService} from '../services/services';
-import {RxPipe} from '../util/RxPipe';
 import {FromNowPipe} from '../util/FromNowPipe';
 import {Observable} from 'rxjs';
 import {User, Thread, Message} from '../models';
@@ -59,7 +63,7 @@ export class ChatMessage implements OnInit {
   selector: 'chat-window',
   directives: [ChatMessage,
                FORM_DIRECTIVES],
-  pipes: [RxPipe],
+  changeDetection: ChangeDetectionStrategy.OnPushObserve,
   template: `
     <div class="chat-window-container">
       <div class="chat-window">
@@ -80,7 +84,7 @@ export class ChatMessage implements OnInit {
 
             <div class="panel-body msg-container-base">
               <chat-message
-                   *ngFor="#message of messages | rx"
+                   *ngFor="#message of messages | async"
                    [message]="message">
               </chat-message>
             </div>

@@ -39,19 +39,13 @@ export class ThreadsService {
           }
         });
         return threads;
-      })
-      // share this stream across multiple subscribers and makes sure everyone
-      // receives the current list of threads when they first subscribe
-      // TODORx
-      // .shareReplay(1, Number.POSITIVE_INFINITY);
+      });
 
     this.orderedThreads = this.threads
       .map((threadGroups: { [key: string]: Thread }) => {
         let threads: Thread[] = _.values(threadGroups);
         return _.sortBy(threads, (t: Thread) => t.lastMessage.sentAt).reverse();
-      })
-      // TODORx
-      // .shareReplay(1, Number.POSITIVE_INFINITY);
+      });
 
     this.currentThreadMessages = this.currentThread
       .combineLatest(messagesService.messages,
@@ -67,12 +61,9 @@ export class ThreadsService {
         } else {
           return [];
         }
-      })
-      // TODORx
-      // .shareReplay(1, Number.POSITIVE_INFINITY);
+      });
 
     this.currentThread.subscribe(this.messagesService.markThreadAsRead);
-
   }
 
   setCurrentThread(newThread: Thread): void {

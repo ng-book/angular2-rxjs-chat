@@ -27,7 +27,12 @@ import {utilInjectables} from './util/util';
 /*
  * Services
  */
-import {MessagesService, ThreadsService, UserService} from './services/services';
+import {
+  MessagesService,
+  ThreadsService,
+  UserService
+} from './services/services';
+
 import {ChatExampleData} from './ChatExampleData';
 
 /*

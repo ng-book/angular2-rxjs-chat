@@ -55,8 +55,7 @@ export class ChatExampleData {
               userService: UserService): void {
 
     // TODO make `messages` hot
-    // messagesService.messages.subscribe(Rx.Observer.create());
-    messagesService.messages.subscribe(() => {});
+    messagesService.messages.subscribe(() => ({}));
 
     // set "Juliet" as the current user
     userService.setCurrentUser(me);
@@ -70,11 +69,10 @@ export class ChatExampleData {
   }
 
   static setupBots(messagesService: MessagesService): void {
-    /*
 
     // echo bot
     messagesService.messagesForThreadUser(tEcho, echo)
-      .forEach( (message: Message) => {
+      .forEach( (message: Message): void => {
         messagesService.addMessage(
           new Message({
             author: echo,
@@ -82,23 +80,26 @@ export class ChatExampleData {
             thread: tEcho
           })
         );
-      });
+      },
+                null);
+
 
     // reverse bot
     messagesService.messagesForThreadUser(tRev, rev)
-      .forEach( (message: Message) => {
+      .forEach( (message: Message): void => {
         messagesService.addMessage(
           new Message({
             author: rev,
-            text: message.text.split("").reverse().join(""),
+            text: message.text.split('').reverse().join(''),
             thread: tRev
           })
         );
-      });
+      },
+                null);
 
     // waiting bot
     messagesService.messagesForThreadUser(tWait, wait)
-      .forEach( (message: Message) => {
+      .forEach( (message: Message): void => {
 
         let waitTime: number = parseInt(message.text, 10);
         let reply: string;
@@ -121,9 +122,9 @@ export class ChatExampleData {
             );
           },
           waitTime * 1000);
-      });
+      },
+                null);
 
-      */
 
   }
 }

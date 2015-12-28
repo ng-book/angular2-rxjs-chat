@@ -1,6 +1,9 @@
-import {Component, OnInit} from 'angular2/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy
+} from 'angular2/core';
 import {ThreadsService} from '../services/services';
-import {RxPipe} from '../util/RxPipe';
 import {Observable} from 'rxjs';
 import {Thread} from '../models';
 
@@ -49,14 +52,14 @@ class ChatThread implements OnInit {
 @Component({
   selector: 'chat-threads',
   directives: [ChatThread],
-  pipes: [RxPipe],
+  changeDetection: ChangeDetectionStrategy.OnPushObserve,
   template: `
     <!-- conversations -->
     <div class="row">
       <div class="conversation-wrap">
 
         <chat-thread
-             *ngFor="#thread of threads | rx"
+             *ngFor="#thread of threads | async"
              [thread]="thread">
         </chat-thread>
 
