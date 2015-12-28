@@ -38,7 +38,7 @@ function makeConfig(options) {
     displayErrorDetails: true,
     context: __dirname,
     entry: {
-      vendor: 'vendor.ts',
+      vendor: './app/ts/vendor.ts',
       bundle: entry,
     },
     stats: {
@@ -65,11 +65,12 @@ function makeConfig(options) {
     },
     plugins: [
       new webpack.IgnorePlugin(/spec\.js$/),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'angular',
-        minChunks: Infinity,
-        filename: 'angular.js'
-      }),
+      new webpack.optimize.CommonsChunkPlugin('core.js'),
+      // new webpack.optimize.CommonsChunkPlugin({
+      //   name: 'angular',
+      //   minChunks: Infinity,
+      //   filename: 'angular.js'
+      // }),
       new ExtractTextPlugin("styles.css"),
       new webpack.DefinePlugin({
         VERSION: JSON.stringify(version),
@@ -96,9 +97,9 @@ function makeConfig(options) {
       ],
       extensions: ["", ".ts", ".js", ".json", ".css"],
       alias: {
-        'rx': '@reactivex/rxjs',
-        'scripts': npmRoot,
-        'app': 'app'
+        // 'rx': '@reactivex/rxjs',
+        'app': 'app',
+        'scripts': npmRoot
       }
     },
     module: {
