@@ -9,26 +9,26 @@
 import {
   Component
 } from 'angular2/core';
-import {bootstrap} from 'angular2/platform/browser';
+import { bootstrap } from 'angular2/platform/browser';
 
 /*
  * Components
  */
-// import {ChatNavBar} from "./components/ChatNavBar";
-// import {ChatThreads} from "./components/ChatThreads";
-// import {ChatWindow} from "./components/ChatWindow";
+// import {ChatNavBar} from './components/ChatNavBar';
+// import {ChatThreads} from './components/ChatThreads';
+// import {ChatWindow} from './components/ChatWindow';
 
-// /*
-//  * Injectables
-//  */
-// import {servicesInjectables} from "./services/services";
-// import {utilInjectables} from "./util/util";
+/*
+ * Injectables
+ */
+import { servicesInjectables } from './services/services.ts';
+// import {utilInjectables} from './util/util';
 
 // /*
 //  * Services
 //  */
-// import {MessagesService, ThreadsService, UserService} from "./services/services";
-// import {ChatExampleData} from "./ChatExampleData";
+// import {MessagesService, ThreadsService, UserService} from './services/services';
+// import {ChatExampleData} from './ChatExampleData';
 
 // /*
 //  * Webpack
@@ -43,7 +43,7 @@ require('../css/styles.scss');
   //              ChatWindow],
   template: `
   <div>
-    Hi :) 
+    Hi :) nom
     <nav-bar></nav-bar>
     <div class="container">
       <chat-threads></chat-threads>
