@@ -1,19 +1,25 @@
 {
-    "version": "1.6.2",
-    "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
-        "declaration": false,
-        "noImplicitAny": false,
-        "removeComments": true,
-        "noLib": false,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true
-    },
-    "filesGlob": [
-        "./**/*.ts",
-        "!./node_modules/**/*.ts"
-    ],
-    "files": [
-    ]
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs",
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noEmitHelpers": false,
+    "sourceMap": true
+  },
+  "files": [
+    "typings/tsd.d.ts",
+    "app/ts/app.ts",
+    "app/ts/services/services.ts",
+    "app/ts/services/UserService.ts",
+    "app/ts/util/uuid.ts",
+    "app/ts/vendor.ts"
+  ],
+  "filesGlob": [
+    "./app/**/*.ts",
+    "!./node_modules/**/*.ts"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false
 }

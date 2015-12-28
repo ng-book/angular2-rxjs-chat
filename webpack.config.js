@@ -36,10 +36,12 @@ function makeConfig(options) {
     debug: true,
     verbose: true,
     displayErrorDetails: true,
+    displayReasons: true,
+    displayChunks: true,
     context: __dirname,
     entry: {
       vendor: './app/ts/vendor.ts',
-      bundle: entry,
+      app: entry,
     },
     stats: {
       colors: true,
@@ -65,7 +67,9 @@ function makeConfig(options) {
     },
     plugins: [
       new webpack.IgnorePlugin(/spec\.js$/),
-      new webpack.optimize.CommonsChunkPlugin('core.js'),
+      // new webpack.optimize.CommonsChunkPlugin('core.js'),
+      new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.js', minChunks: Infinity }),
+      new webpack.optimize.CommonsChunkPlugin({ name: 'common', filename: 'common.js', minChunks: 2, chunks: ['app', 'vendor'] }),
       // new webpack.optimize.CommonsChunkPlugin({
       //   name: 'angular',
       //   minChunks: Infinity,

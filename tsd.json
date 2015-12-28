@@ -5,26 +5,14 @@
   "path": "typings",
   "bundle": "typings/tsd.d.ts",
   "installed": {
-    "es6-promise/es6-promise.d.ts": {
-      "commit": "4f7b7e01d3a9622bfab0bef469e169529e60c66b"
-    },
     "moment/moment.d.ts": {
       "commit": "b2345aee407127928f247165c91e18bd7dc1a14a"
     },
     "moment/moment-node.d.ts": {
       "commit": "b2345aee407127928f247165c91e18bd7dc1a14a"
     },
-    "angular2/angular2.d.ts": {
-      "commit": "38fb591c6eba840e0b53d1110302b8e4fb04651c"
-    },
     "underscore/underscore.d.ts": {
       "commit": "38fb591c6eba840e0b53d1110302b8e4fb04651c"
-    },
-    "rx/rx-lite.d.ts": {
-      "commit": "4f7b7e01d3a9622bfab0bef469e169529e60c66b"
-    },
-    "rx/rx.d.ts": {
-      "commit": "4f7b7e01d3a9622bfab0bef469e169529e60c66b"
     }
   }
 }
