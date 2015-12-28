@@ -1,4 +1,3 @@
-/// <reference path="../../typings/app.d.ts" />
 /* tslint:disable:max-line-length */
 /**
  * Creates a pipe suitable for a RxJS observable:
@@ -18,12 +17,12 @@
  *
  * @class
  */
-import {Pipe, bind, ChangeDetectorRef} from "angular2/angular2";
-import {AsyncPipe} from "angular2/core";
-import {Observable} from "@reactivex/rxjs";
+import {Pipe, bind, ChangeDetectorRef} from 'angular2/core';
+import {AsyncPipe} from 'angular2/common';
+import {Observable} from 'rxjs';
 
 function isObservable(obs: any): boolean {
-  return obs && typeof obs.subscribe === "function";
+  return obs && typeof obs.subscribe === 'function';
 }
 
 class RxStrategy {
@@ -36,7 +35,7 @@ class RxStrategy {
 
 let _rxStrategy: RxStrategy = new RxStrategy();
 
-@Pipe({name: "rx"})
+@Pipe({name: 'rx'})
 export class RxPipe extends AsyncPipe {
   constructor(public _ref: ChangeDetectorRef) { super(_ref); }
 
