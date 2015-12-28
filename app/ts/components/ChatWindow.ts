@@ -1,46 +1,44 @@
-/// <reference path="../../typings/app.d.ts" />
-import {Component, View, NgFor, NgIf, NgClass, LifecycleEvent,
-        FORM_DIRECTIVES, ElementRef} from "angular2/angular2";
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  ChangeDetectionStrategy
+} from 'angular2/core';
+import {FORM_DIRECTIVES} from 'angular2/common';
 import {MessagesService,
         ThreadsService,
-        UserService} from "../services/services";
-import {RxPipe} from "../util/RxPipe";
-import {FromNowPipe} from "../util/FromNowPipe";
-import * as Rx from "rx";
-import {User, Thread, Message} from "../models";
+        UserService} from '../services/services';
+import {FromNowPipe} from '../util/FromNowPipe';
+import {Observable} from 'rxjs';
+import {User, Thread, Message} from '../models';
 
 @Component({
-  lifecycle: [ LifecycleEvent.onInit ],
-  properties: ["message"],
-  selector: "chat-message"
-})
-@View({
-  directives: [NgIf,
-               NgClass],
+  properties: ['message'],
+  selector: 'chat-message',
   pipes: [FromNowPipe],
   template: `
   <div class="msg-container"
-       [ng-class]="{'base-sent': !incoming, 'base-receive': incoming}">
+       [ngClass]="{'base-sent': !incoming, 'base-receive': incoming}">
 
     <div class="avatar"
-         *ng-if="!incoming">
+         *ngIf="!incoming">
       <img src="{{message.author.avatarSrc}}">
     </div>
 
     <div class="messages"
-      [ng-class]="{'msg-sent': !incoming, 'msg-receive': incoming}">
+      [ngClass]="{'msg-sent': !incoming, 'msg-receive': incoming}">
       <p>{{message.text}}</p>
       <time>{{message.sender}} • {{message.sentAt | fromNow}}</time>
     </div>
 
     <div class="avatar"
-         *ng-if="incoming">
+         *ngIf="incoming">
       <img src="{{message.author.avatarSrc}}">
     </div>
   </div>
   `
 })
-export class ChatMessage {
+export class ChatMessage implements OnInit {
   message: Message;
   currentUser: User;
   incoming: boolean;
@@ -48,7 +46,7 @@ export class ChatMessage {
   constructor(public userService: UserService) {
   }
 
-  onInit(): void {
+  ngOnInit(): void {
     this.userService.currentUser
       .subscribe(
         (user: User) => {
@@ -62,14 +60,10 @@ export class ChatMessage {
 }
 
 @Component({
-  lifecycle: [ LifecycleEvent.onInit ],
-  selector: "chat-window"
-})
-@View({
-  directives: [NgFor,
-               ChatMessage,
+  selector: 'chat-window',
+  directives: [ChatMessage,
                FORM_DIRECTIVES],
-  pipes: [RxPipe],
+  changeDetection: ChangeDetectionStrategy.OnPushObserve,
   template: `
     <div class="chat-window-container">
       <div class="chat-window">
@@ -90,7 +84,7 @@ export class ChatMessage {
 
             <div class="panel-body msg-container-base">
               <chat-message
-                   *ng-for="#message of messages | rx"
+                   *ngFor="#message of messages | async"
                    [message]="message">
               </chat-message>
             </div>
@@ -101,7 +95,7 @@ export class ChatMessage {
                        class="chat-input"
                        placeholder="Write your message here..."
                        (keydown.enter)="onEnter($event)"
-                       [(ng-model)]="draftMessage.text" />
+                       [(ngModel)]="draftMessage.text" />
                 <span class="input-group-btn">
                   <button class="btn-chat"
                      (click)="onEnter($event)"
@@ -116,8 +110,8 @@ export class ChatMessage {
     </div>
   `
 })
-export class ChatWindow {
-  messages: Rx.Observable<any>;
+export class ChatWindow implements OnInit {
+  messages: Observable<any>;
   currentThread: Thread;
   draftMessage: Message;
   currentUser: User;
@@ -128,7 +122,7 @@ export class ChatWindow {
               public el: ElementRef) {
   }
 
-  onInit(): void {
+  ngOnInit(): void {
     this.messages = this.threadsService.currentThreadMessages;
 
     this.draftMessage = new Message();
@@ -169,7 +163,7 @@ export class ChatWindow {
 
   scrollToBottom(): void {
     let scrollPane: any = this.el
-      .nativeElement.querySelector(".msg-container-base");
+      .nativeElement.querySelector('.msg-container-base');
     scrollPane.scrollTop = scrollPane.scrollHeight;
   }
 

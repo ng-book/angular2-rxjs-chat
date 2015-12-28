@@ -1,8 +1,8 @@
-import {Pipe, bind} from "angular2/angular2";
-import * as moment from "moment";
+import {Pipe, bind} from 'angular2/core';
+import * as moment from 'moment';
 
 @Pipe({
-  name: "fromNow"
+  name: 'fromNow'
 })
 export class FromNowPipe {
   transform(value: any, args: Array<any>): string {

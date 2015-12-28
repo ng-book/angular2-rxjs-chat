@@ -5,16 +5,12 @@ var webpack             = require('webpack'),
     HtmlWebpackPlugin   = require('html-webpack-plugin'),
     WebpackNotifierPlugin = require('webpack-notifier'),
     ExtractTextPlugin   = require("extract-text-webpack-plugin");
-
  
 /**
  * Support for extra commandline arguments
  */
 var argv = require('optimist')
-            // .alias('e','env').default('e','dev')
-            // .alias('r','release').default('r', false)
-            // .alias('m','minify')
-            // .alias('t','hotComponents').default('t', false)
+            .alias('r','release').default('r', false)
             .argv;
  
 /**
@@ -26,10 +22,9 @@ var isDevServer = process.argv.join('').indexOf('webpack-dev-server') > -1;
 var version = require(path.resolve(cwd,'package.json')).version;
 var reloadHost = "0.0.0.0";
 var npmRoot = __dirname + "/node_modules";
-var vendorRoot = __dirname + "/app/js/vendor";
 var appDir = __dirname + "/app";
 
-var entry = ["app.ts"]
+var entry = ["./app/ts/app.ts"]
  
 if (isDevServer) {
   entry.unshift("webpack-dev-server/client?http://"+reloadHost+":8080");
@@ -41,12 +36,12 @@ function makeConfig(options) {
     debug: true,
     verbose: true,
     displayErrorDetails: true,
-    context: appDir,
+    displayReasons: true,
+    displayChunks: true,
+    context: __dirname,
     entry: {
-      vendor: [
-        "vendor.js",
-      ],
-      bundle: entry
+      vendor: './app/ts/vendor.ts',
+      app: entry,
     },
     stats: {
       colors: true,
@@ -54,7 +49,6 @@ function makeConfig(options) {
     },
     devtool: 'source-map',
     recordsPath: path.resolve('.webpack.json'),
- 
     devServer: {
       inline: true,
       colors: true,
@@ -73,7 +67,14 @@ function makeConfig(options) {
     },
     plugins: [
       new webpack.IgnorePlugin(/spec\.js$/),
-      new webpack.optimize.CommonsChunkPlugin('core.js'),
+      // new webpack.optimize.CommonsChunkPlugin('core.js'),
+      new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.js', minChunks: Infinity }),
+      new webpack.optimize.CommonsChunkPlugin({ name: 'common', filename: 'common.js', minChunks: 2, chunks: ['app', 'vendor'] }),
+      // new webpack.optimize.CommonsChunkPlugin({
+      //   name: 'angular',
+      //   minChunks: Infinity,
+      //   filename: 'angular.js'
+      // }),
       new ExtractTextPlugin("styles.css"),
       new webpack.DefinePlugin({
         VERSION: JSON.stringify(version),
@@ -100,15 +101,10 @@ function makeConfig(options) {
       ],
       extensions: ["", ".ts", ".js", ".json", ".css"],
       alias: {
-        'app': 'app'
+        // 'rx': '@reactivex/rxjs',
+        'app': 'app',
+        'scripts': npmRoot
       }
-    },
-    externals: {
-      "file-loader!vendor/traceur-runtime-0.0.87.js": "traceur",
-      "file-loader!vendor/system-0.16.11.js": "systemjs",
-      "file-loader!vendor/es6-module-loader-0.16.6.js": "es6ModuleLoader",
-      "file-loader!vendor/angular2.dev.2.0.0-alpha.35.js": "angular",
-      "file-loader!vendor/bootstrap@3.3.5.min.css": "bootstrap"
     },
     module: {
       preLoaders: [
@@ -130,8 +126,8 @@ function makeConfig(options) {
         { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,         loader: "url-loader" },
         { test: /\.html$/,    loader: "raw" },
         { test: /^index\.html$/, loader: "file-loader?name=[path][name].[ext]" },
-        { test: /\.ts$/, loader: 'awesome-typescript-loader?ignoreWarnings[]=2304', exclude: [ /test/, /node_modules/]},
-        { test: /vendor[\/\\].*\.(css|js)/, loader: 'file-loader?name=[path][name].[ext]', exclude: [/node_modules/]},
+        { test: /\.ts$/, loader: 'ts', exclude: [ /test/, /node_modules/]},
+        { test: /vendor\/.*\.(css|js)/, loader: 'file-loader?name=[path][name].[ext]', exclude: [/node_modules/]},
         { test: /\.woff(2)?(\?v=\d+\.\d+\.\d+)?$/,    loader: "file-loader?mimetype=application/font-woff&name=[path][name].[ext]" },
         { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,         loader: "file-loader?mimetype=application/x-font-ttf&name=[path][name].[ext]" },
         { test: /\.eot(\?v=\d+\.\d+\.\d+)?\??$/,      loader: "file-loader?mimetype=application/vnd.ms-fontobject&name=[path][name].[ext]" },

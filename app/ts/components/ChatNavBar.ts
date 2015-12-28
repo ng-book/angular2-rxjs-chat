@@ -1,21 +1,18 @@
-/// <reference path="../../typings/app.d.ts" />
-import {Component, View, LifecycleEvent} from "angular2/angular2";
-import {MessagesService, ThreadsService} from "../services/services";
-import {Message, Thread} from "../models";
-import * as _ from "underscore";
+import {Component, OnInit} from 'angular2/core';
+import {MessagesService, ThreadsService} from '../services/services';
+import {Message, Thread} from '../models';
+import * as _ from 'underscore';
 
 @Component({
-  lifecycle: [ LifecycleEvent.onInit ],
-  selector: "nav-bar"
-})
-@View({
+  selector: 'nav-bar',
   directives: [],
   template: `
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="https://ng-book.com/2">
-          <img src="${require("images/logos/ng-book-2-minibook.png")}"></img> ng-book 2
+          <img src="${require('images/logos/ng-book-2-minibook.png')}"/>
+           ng-book 2
         </a>
       </div>
       <p class="navbar-text navbar-right">
@@ -25,17 +22,16 @@ import * as _ from "underscore";
       </p>
     </div>
   </nav>
-
   `
 })
-export class ChatNavBar {
+export class ChatNavBar implements OnInit {
   unreadMessagesCount: number;
 
   constructor(public messagesService: MessagesService,
               public threadsService: ThreadsService) {
   }
 
-  onInit(): void {
+  ngOnInit(): void {
     this.messagesService.messages
       .combineLatest(
         this.threadsService.currentThread,

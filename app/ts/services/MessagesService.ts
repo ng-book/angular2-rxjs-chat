@@ -1,7 +1,6 @@
-/// <reference path="../../typings/app.d.ts" />
-import {Injectable, bind} from "angular2/angular2";
-import * as Rx from "rx";
-import {User, Thread, Message} from "../models";
+import {Injectable, bind} from 'angular2/core';
+import {Subject, Observable} from 'rxjs';
+import {User, Thread, Message} from '../models';
 
 let initialMessages: Message[] = [];
 
@@ -12,37 +11,38 @@ interface IMessagesOperation extends Function {
 @Injectable()
 export class MessagesService {
   // a stream that publishes new messages only once
-  newMessages: Rx.Subject<Message> = new Rx.Subject<Message>();
+  newMessages: Subject<Message> = new Subject<Message>();
 
   // `messages` is a stream that emits an array of the most up to date messages
-  messages: Rx.Observable<Message[]>;
+  messages: Observable<Message[]>;
 
   // `updates` receives _operations_ to be applied to our `messages`
   // it's a way we can perform changes on *all* messages (that are currently 
   // stored in `messages`)
-  updates: Rx.Subject<any> =
-    new Rx.Subject<any>();
+  updates: Subject<any> = new Subject<any>();
 
   // action streams
-  create: Rx.Subject<Message> = new Rx.Subject<Message>();
-  markThreadAsRead: Rx.Subject<any> = new Rx.Subject<any>();
+  create: Subject<Message> = new Subject<Message>();
+  markThreadAsRead: Subject<any> = new Subject<any>();
 
   constructor() {
     this.messages = this.updates
       // watch the updates and accumulate operations on the messages
-      .scan(initialMessages, (messages: Message[],
+      .scan((messages: Message[],
               operation: IMessagesOperation) => {
         return operation(messages);
-      })
+              },
+            initialMessages)
       // make sure we can share the most recent list of messages across anyone
       // who's interested in subscribing and cache the last known list of
       // messages
-      .shareReplay(1);
+      .publishReplay(1)
+      .refCount();
 
     // `create` takes a Message and then puts an operation (the inner function)
     // on the `updates` stream to add the Message to the list of messages.
     //
-    // That is, for each item that gets added to `create` (by using `onNext`)
+    // That is, for each item that gets added to `create` (by using `next`)
     // this stream emits a concat operation function.
     //
     // Next we subscribe `this.updates` to listen to this stream, which means
@@ -86,10 +86,10 @@ export class MessagesService {
 
   // an imperative function call to this action stream
   addMessage(message: Message): void {
-    this.newMessages.onNext(message);
+    this.newMessages.next(message);
   }
 
-  messagesForThreadUser(thread: Thread, user: User): Rx.Observable<Message> {
+  messagesForThreadUser(thread: Thread, user: User): Observable<Message> {
     return this.newMessages
       .filter((message: Message) => {
                // belongs to this thread

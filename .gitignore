@@ -32,3 +32,19 @@ build/Release
 node_modules
 
 .webpack.json
+
+
+app/ts/ChatExampleData.js
+app/ts/app.js
+app/ts/components/ChatNavBar.js
+app/ts/components/ChatThreads.js
+app/ts/components/ChatWindow.js
+app/ts/models.js
+app/ts/services/MessagesService.js
+app/ts/services/ThreadsService.js
+app/ts/services/UserService.js
+app/ts/services/services.js
+app/ts/util/FromNowPipe.js
+app/ts/util/RxPipe.js
+app/ts/util/util.js
+app/ts/util/uuid.js

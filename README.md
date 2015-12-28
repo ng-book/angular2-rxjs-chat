@@ -149,11 +149,11 @@ angular2-rxjs-chat/
 
 **Step 1: Install Node.js from the [Node Website](http://nodejs.org/).**
 
-We recommend Node version 0.12 or above. You can check your node version by running this:
+We recommend Node version 4.1 or above. You can check your node version by running this:
 
 ```bash
 $ node -v
-v0.12...
+vv4.1...
 ```
 
 **Step 2: Install Dependencies**

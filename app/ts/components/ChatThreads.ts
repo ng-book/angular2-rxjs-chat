@@ -1,18 +1,15 @@
-/// <reference path="../../typings/app.d.ts" />
-import {Component, View, NgFor, NgIf,
-        LifecycleEvent} from "angular2/angular2";
-import {ThreadsService} from "../services/services";
-import {RxPipe} from "../util/RxPipe";
-import * as Rx from "rx";
-import {Thread} from "../models";
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy
+} from 'angular2/core';
+import {ThreadsService} from '../services/services';
+import {Observable} from 'rxjs';
+import {Thread} from '../models';
 
 @Component({
-  lifecycle: [ LifecycleEvent.onInit ],
-  properties: ["thread"],
-  selector: "chat-thread"
-})
-@View({
-  directives: [NgIf],
+  properties: ['thread'],
+  selector: 'chat-thread',
   template: `
   <div class="media conversation">
     <div class="pull-left">
@@ -21,7 +18,7 @@ import {Thread} from "../models";
     </div>
     <div class="media-body">
       <h5 class="media-heading contact-name">{{thread.name}}
-        <span *ng-if="selected">&bull;</span>
+        <span *ngIf="selected">&bull;</span>
       </h5>
       <small class="message-preview">{{thread.lastMessage.text}}</small>
     </div>
@@ -29,14 +26,14 @@ import {Thread} from "../models";
   </div>
   `
 })
-class ChatThread {
+class ChatThread implements OnInit {
   thread: Thread;
   selected: boolean = false;
 
   constructor(public threadsService: ThreadsService) {
   }
 
-  onInit(): void {
+  ngOnInit(): void {
     this.threadsService.currentThread
       .subscribe( (currentThread: Thread) => {
         this.selected = currentThread &&
@@ -53,18 +50,16 @@ class ChatThread {
 
 
 @Component({
-  selector: "chat-threads"
-})
-@View({
-  directives: [NgFor, ChatThread],
-  pipes: [RxPipe],
+  selector: 'chat-threads',
+  directives: [ChatThread],
+  changeDetection: ChangeDetectionStrategy.OnPushObserve,
   template: `
     <!-- conversations -->
     <div class="row">
       <div class="conversation-wrap">
 
         <chat-thread
-             *ng-for="#thread of threads | rx"
+             *ngFor="#thread of threads | async"
              [thread]="thread">
         </chat-thread>
 
@@ -73,7 +68,7 @@ class ChatThread {
   `
 })
 export class ChatThreads {
-  threads: Rx.Observable<any>;
+  threads: Observable<any>;
 
   constructor(public threadsService: ThreadsService) {
     this.threads = threadsService.orderedThreads;
