@@ -1,40 +1,34 @@
-/// <reference path="../../typings/app.d.ts" />
-import {Component, View, NgFor, NgIf, NgClass, OnInit,
-        FORM_DIRECTIVES, ElementRef} from "angular2/angular2";
+import {Component, OnInit, ElementRef} from 'angular2/core';
+import {FORM_DIRECTIVES} from 'angular2/common';
 import {MessagesService,
         ThreadsService,
-        UserService} from "../services/services";
-import {RxPipe} from "../util/RxPipe";
-import {FromNowPipe} from "../util/FromNowPipe";
-import * as Rx from "@reactivex/rxjs";
-import {User, Thread, Message} from "../models";
+        UserService} from '../services/services';
+import {RxPipe} from '../util/RxPipe';
+import {FromNowPipe} from '../util/FromNowPipe';
+import {Observable} from 'rxjs';
+import {User, Thread, Message} from '../models';
 
 @Component({
-
-  properties: ["message"],
-  selector: "chat-message"
-})
-@View({
-  directives: [NgIf,
-               NgClass],
+  properties: ['message'],
+  selector: 'chat-message',
   pipes: [FromNowPipe],
   template: `
   <div class="msg-container"
-       [ng-class]="{'base-sent': !incoming, 'base-receive': incoming}">
+       [ngClass]="{'base-sent': !incoming, 'base-receive': incoming}">
 
     <div class="avatar"
-         *ng-if="!incoming">
+         *ngIf="!incoming">
       <img src="{{message.author.avatarSrc}}">
     </div>
 
     <div class="messages"
-      [ng-class]="{'msg-sent': !incoming, 'msg-receive': incoming}">
+      [ngClass]="{'msg-sent': !incoming, 'msg-receive': incoming}">
       <p>{{message.text}}</p>
       <time>{{message.sender}} • {{message.sentAt | fromNow}}</time>
     </div>
 
     <div class="avatar"
-         *ng-if="incoming">
+         *ngIf="incoming">
       <img src="{{message.author.avatarSrc}}">
     </div>
   </div>
@@ -48,7 +42,7 @@ export class ChatMessage implements OnInit {
   constructor(public userService: UserService) {
   }
 
-  onInit(): void {
+  ngOnInit(): void {
     this.userService.currentUser
       .subscribe(
         (user: User) => {
@@ -62,12 +56,8 @@ export class ChatMessage implements OnInit {
 }
 
 @Component({
-
-  selector: "chat-window"
-})
-@View({
-  directives: [NgFor,
-               ChatMessage,
+  selector: 'chat-window',
+  directives: [ChatMessage,
                FORM_DIRECTIVES],
   pipes: [RxPipe],
   template: `
@@ -90,7 +80,7 @@ export class ChatMessage implements OnInit {
 
             <div class="panel-body msg-container-base">
               <chat-message
-                   *ng-for="#message of messages | rx"
+                   *ngFor="#message of messages | rx"
                    [message]="message">
               </chat-message>
             </div>
@@ -101,7 +91,7 @@ export class ChatMessage implements OnInit {
                        class="chat-input"
                        placeholder="Write your message here..."
                        (keydown.enter)="onEnter($event)"
-                       [(ng-model)]="draftMessage.text" />
+                       [(ngModel)]="draftMessage.text" />
                 <span class="input-group-btn">
                   <button class="btn-chat"
                      (click)="onEnter($event)"
@@ -117,7 +107,7 @@ export class ChatMessage implements OnInit {
   `
 })
 export class ChatWindow implements OnInit {
-  messages: Rx.Observable<any>;
+  messages: Observable<any>;
   currentThread: Thread;
   draftMessage: Message;
   currentUser: User;
@@ -128,7 +118,7 @@ export class ChatWindow implements OnInit {
               public el: ElementRef) {
   }
 
-  onInit(): void {
+  ngOnInit(): void {
     this.messages = this.threadsService.currentThreadMessages;
 
     this.draftMessage = new Message();
@@ -169,7 +159,7 @@ export class ChatWindow implements OnInit {
 
   scrollToBottom(): void {
     let scrollPane: any = this.el
-      .nativeElement.querySelector(".msg-container-base");
+      .nativeElement.querySelector('.msg-container-base');
     scrollPane.scrollTop = scrollPane.scrollHeight;
   }
 

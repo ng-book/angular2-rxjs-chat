@@ -14,9 +14,9 @@ import { bootstrap } from 'angular2/platform/browser';
 /*
  * Components
  */
-// import {ChatNavBar} from './components/ChatNavBar';
-// import {ChatThreads} from './components/ChatThreads';
-// import {ChatWindow} from './components/ChatWindow';
+import {ChatNavBar} from './components/ChatNavBar';
+import {ChatThreads} from './components/ChatThreads';
+import {ChatWindow} from './components/ChatWindow';
 
 /*
  * Injectables
@@ -28,25 +28,27 @@ import {utilInjectables} from './util/util';
  * Services
  */
 import {MessagesService, ThreadsService, UserService} from './services/services';
-// import {ChatExampleData} from './ChatExampleData';
+import {ChatExampleData} from './ChatExampleData';
 
 /*
  * Webpack
  */
 require('../css/styles.scss');
 
-// 
 require('./services/services');
+require('./ChatExampleData');
 require('./util/util');
+require('./components/ChatNavBar');
+require('./components/ChatWindow');
+require('./components/ChatThreads');
 
 @Component({
   selector: 'chat-app',
-  // directives: [ChatNavBar,
-  //              ChatThreads,
-  //              ChatWindow],
+  directives: [ChatNavBar,
+               ChatThreads,
+               ChatWindow],
   template: `
   <div>
-    Hi :) nom
     <nav-bar></nav-bar>
     <div class="container">
       <chat-threads></chat-threads>
@@ -56,14 +58,11 @@ require('./util/util');
   `
 })
 class ChatApp {
-  // constructor(public messagesService: MessagesService,
-  //             public threadsService: ThreadsService,
-  //             public userService: UserService) {
-  //   ChatExampleData.init(messagesService, threadsService, userService);
-
-  // }
+  constructor(public messagesService: MessagesService,
+              public threadsService: ThreadsService,
+              public userService: UserService) {
+    ChatExampleData.init(messagesService, threadsService, userService);
+  }
 }
 
-// bootstrap(ChatApp, [ servicesInjectables, utilInjectables ]);
-
-bootstrap(ChatApp);
+bootstrap(ChatApp, [ servicesInjectables, utilInjectables ]);

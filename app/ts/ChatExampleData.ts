@@ -3,14 +3,13 @@ import {User, Thread, Message} from './models';
 import {MessagesService, ThreadsService,
         UserService} from './services/services';
 import * as moment from 'moment';
-import * as Rx from '@reactivex/rxjs';
 
 // the person using the app us Juliet
-let me: User      = new User('Juliet', require<string>('images/avatars/female-avatar-1.png'));
-let ladycap: User = new User('Lady Capulet', require<string>('images/avatars/female-avatar-2.png'));
-let echo: User    = new User('Echo Bot', require<string>('images/avatars/male-avatar-1.png'));
-let rev: User     = new User('Reverse Bot', require<string>('images/avatars/female-avatar-4.png'));
-let wait: User    = new User('Waiting Bot', require<string>('images/avatars/male-avatar-2.png'));
+let me: User      = new User('Juliet', require('images/avatars/female-avatar-1.png'));
+let ladycap: User = new User('Lady Capulet', require('images/avatars/female-avatar-2.png'));
+let echo: User    = new User('Echo Bot', require('images/avatars/male-avatar-1.png'));
+let rev: User     = new User('Reverse Bot', require('images/avatars/female-avatar-4.png'));
+let wait: User    = new User('Waiting Bot', require('images/avatars/male-avatar-2.png'));
 
 let tLadycap: Thread = new Thread('tLadycap', ladycap.name, ladycap.avatarSrc);
 let tEcho: Thread    = new Thread('tEcho', echo.name, echo.avatarSrc);
@@ -33,19 +32,19 @@ let initialMessages: Array<Message> = [
   new Message({
     author: echo,
     sentAt: moment().subtract(1, 'minutes').toDate(),
-    text: 'I'll echo whatever you send me',
+    text: `I\'ll echo whatever you send me`,
     thread: tEcho
   }),
   new Message({
     author: rev,
     sentAt: moment().subtract(3, 'minutes').toDate(),
-    text: `I'll reverse whatever you send me`,
+    text: `I\'ll reverse whatever you send me`,
     thread: tRev
   }),
   new Message({
     author: wait,
     sentAt: moment().subtract(4, 'minutes').toDate(),
-    text: `I'll wait however many seconds you send to me before responding. Try sending '3'`, // '
+    text: `I\'ll wait however many seconds you send to me before responding. Try sending '3'`,
     thread: tWait
   }),
 ];
@@ -71,6 +70,7 @@ export class ChatExampleData {
   }
 
   static setupBots(messagesService: MessagesService): void {
+    /*
 
     // echo bot
     messagesService.messagesForThreadUser(tEcho, echo)
@@ -105,7 +105,7 @@ export class ChatExampleData {
 
         if (isNaN(waitTime)) {
           waitTime = 0;
-          reply = `I didn't understand ${message}. Try sending me a number`;
+          reply = `I didn\'t understand ${message}. Try sending me a number`;
         } else {
           reply = `I waited ${waitTime} seconds to send you this.`;
         }
@@ -122,6 +122,8 @@ export class ChatExampleData {
           },
           waitTime * 1000);
       });
+
+      */
 
   }
 }

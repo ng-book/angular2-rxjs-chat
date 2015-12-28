@@ -1,18 +1,12 @@
-/// <reference path="../../typings/app.d.ts" />
-import {Component, View, NgFor, NgIf,
-        OnInit} from "angular2/angular2";
-import {ThreadsService} from "../services/services";
-import {RxPipe} from "../util/RxPipe";
-import * as Rx from "@reactivex/rxjs";
-import {Thread} from "../models";
+import {Component, OnInit} from 'angular2/core';
+import {ThreadsService} from '../services/services';
+import {RxPipe} from '../util/RxPipe';
+import {Observable} from 'rxjs';
+import {Thread} from '../models';
 
 @Component({
-  
-  properties: ["thread"],
-  selector: "chat-thread"
-})
-@View({
-  directives: [NgIf],
+  properties: ['thread'],
+  selector: 'chat-thread',
   template: `
   <div class="media conversation">
     <div class="pull-left">
@@ -21,7 +15,7 @@ import {Thread} from "../models";
     </div>
     <div class="media-body">
       <h5 class="media-heading contact-name">{{thread.name}}
-        <span *ng-if="selected">&bull;</span>
+        <span *ngIf="selected">&bull;</span>
       </h5>
       <small class="message-preview">{{thread.lastMessage.text}}</small>
     </div>
@@ -36,7 +30,7 @@ class ChatThread implements OnInit {
   constructor(public threadsService: ThreadsService) {
   }
 
-  onInit(): void {
+  ngOnInit(): void {
     this.threadsService.currentThread
       .subscribe( (currentThread: Thread) => {
         this.selected = currentThread &&
@@ -53,10 +47,8 @@ class ChatThread implements OnInit {
 
 
 @Component({
-  selector: "chat-threads"
-})
-@View({
-  directives: [NgFor, ChatThread],
+  selector: 'chat-threads',
+  directives: [ChatThread],
   pipes: [RxPipe],
   template: `
     <!-- conversations -->
@@ -64,7 +56,7 @@ class ChatThread implements OnInit {
       <div class="conversation-wrap">
 
         <chat-thread
-             *ng-for="#thread of threads | rx"
+             *ngFor="#thread of threads | rx"
              [thread]="thread">
         </chat-thread>
 
@@ -73,7 +65,7 @@ class ChatThread implements OnInit {
   `
 })
 export class ChatThreads {
-  threads: Rx.Observable<any>;
+  threads: Observable<any>;
 
   constructor(public threadsService: ThreadsService) {
     this.threads = threadsService.orderedThreads;
