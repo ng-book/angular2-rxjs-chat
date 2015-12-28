@@ -1,26 +1,25 @@
-/// <reference path="../../typings/app.d.ts" />
-import {Injectable, bind} from "angular2/angular2";
-import * as Rx from "@reactivex/rxjs";
-import {Thread, Message} from "../models";
-import {MessagesService} from "./MessagesService";
-import * as _ from "underscore";
+import {Injectable, bind} from 'angular2/core';
+import {Subject, BehaviorSubject, Observable} from 'rxjs';
+import {Thread, Message} from '../models';
+import {MessagesService} from './MessagesService';
+import * as _ from 'underscore';
 
 @Injectable()
 export class ThreadsService {
 
   // `threads` is a observable that contains the most up to date list of threads
-  threads: Rx.Observable<{ [key: string]: Thread }>;
+  threads: Observable<{ [key: string]: Thread }>;
 
   // `orderedThreads` contains a newest-first chronological list of threads
-  orderedThreads: Rx.Observable<Thread[]>;
+  orderedThreads: Observable<Thread[]>;
 
   // `currentThread` contains the currently selected thread
-  currentThread: Rx.Subject<Thread> =
-    new Rx.BehaviorSubject<Thread>(new Thread());
+  currentThread: Subject<Thread> =
+    new BehaviorSubject<Thread>(new Thread());
 
   // `currentThreadMessages` contains the set of messages for the currently
   // selected thread
-  currentThreadMessages: Rx.Observable<Message[]>;
+  currentThreadMessages: Observable<Message[]>;
 
   constructor(public messagesService: MessagesService) {
 
@@ -43,14 +42,16 @@ export class ThreadsService {
       })
       // share this stream across multiple subscribers and makes sure everyone
       // receives the current list of threads when they first subscribe
-      .shareReplay(1, Number.POSITIVE_INFINITY);
+      // TODORx
+      // .shareReplay(1, Number.POSITIVE_INFINITY);
 
     this.orderedThreads = this.threads
       .map((threadGroups: { [key: string]: Thread }) => {
         let threads: Thread[] = _.values(threadGroups);
         return _.sortBy(threads, (t: Thread) => t.lastMessage.sentAt).reverse();
       })
-      .shareReplay(1, Number.POSITIVE_INFINITY);
+      // TODORx
+      // .shareReplay(1, Number.POSITIVE_INFINITY);
 
     this.currentThreadMessages = this.currentThread
       .combineLatest(messagesService.messages,
@@ -67,7 +68,8 @@ export class ThreadsService {
           return [];
         }
       })
-      .shareReplay(1, Number.POSITIVE_INFINITY);
+      // TODORx
+      // .shareReplay(1, Number.POSITIVE_INFINITY);
 
     this.currentThread.subscribe(this.messagesService.markThreadAsRead);
 

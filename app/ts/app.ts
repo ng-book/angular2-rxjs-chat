@@ -21,20 +21,24 @@ import { bootstrap } from 'angular2/platform/browser';
 /*
  * Injectables
  */
-import { servicesInjectables } from './services/services.ts';
+import { servicesInjectables } from './services/services';
+
 // import {utilInjectables} from './util/util';
 
-// /*
-//  * Services
-//  */
+/*
+ * Services
+ */
+import {MessagesService, UserService} from './services/services';
 // import {MessagesService, ThreadsService, UserService} from './services/services';
 // import {ChatExampleData} from './ChatExampleData';
 
-// /*
-//  * Webpack
-//  */
-
+/*
+ * Webpack
+ */
 require('../css/styles.scss');
+
+// 
+require('./services/services');
 
 @Component({
   selector: 'chat-app',
