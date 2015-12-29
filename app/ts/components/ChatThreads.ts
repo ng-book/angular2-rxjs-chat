@@ -8,7 +8,7 @@ import {Observable} from 'rxjs';
 import {Thread} from '../models';
 
 @Component({
-  properties: ['thread'],
+  inputs: ['thread'],
   selector: 'chat-thread',
   template: `
   <div class="media conversation">

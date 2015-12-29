@@ -13,7 +13,7 @@ import {Observable} from 'rxjs';
 import {User, Thread, Message} from '../models';
 
 @Component({
-  properties: ['message'],
+  inputs: ['message'],
   selector: 'chat-message',
   pipes: [FromNowPipe],
   template: `

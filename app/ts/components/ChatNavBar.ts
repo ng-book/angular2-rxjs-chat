@@ -5,7 +5,6 @@ import * as _ from 'underscore';
 
 @Component({
   selector: 'nav-bar',
-  directives: [],
   template: `
   <nav class="navbar navbar-default">
     <div class="container-fluid">
