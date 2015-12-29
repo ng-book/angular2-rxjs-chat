@@ -40,13 +40,6 @@ import {ChatExampleData} from './ChatExampleData';
  */
 require('../css/styles.scss');
 
-require('./services/services');
-require('./ChatExampleData');
-require('./util/util');
-require('./components/ChatNavBar');
-require('./components/ChatWindow');
-require('./components/ChatThreads');
-
 @Component({
   selector: 'chat-app',
   directives: [ChatNavBar,
@@ -71,3 +64,15 @@ class ChatApp {
 }
 
 bootstrap(ChatApp, [ servicesInjectables, utilInjectables ]);
+
+// --------------------
+// You can ignore these 'require' statements. The code will work without them.
+// They're currently required to get watch-reloading
+// from webpack, but removing them is a TODO
+require('./services/services');
+require('./ChatExampleData');
+require('./util/util');
+require('./components/ChatNavBar');
+require('./components/ChatWindow');
+require('./components/ChatThreads');
+
