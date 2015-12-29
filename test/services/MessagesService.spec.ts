@@ -35,7 +35,6 @@ describe('MessagesService', () => {
     messagesService.addMessage(m1);
     messagesService.addMessage(m2);
 
-    // => messages: 0
     // => messages: 1
     // => newMessages: Hi!
     // => messages: 2
