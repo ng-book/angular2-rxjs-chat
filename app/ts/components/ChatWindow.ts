@@ -5,9 +5,11 @@ import {
   ChangeDetectionStrategy
 } from 'angular2/core';
 import {FORM_DIRECTIVES} from 'angular2/common';
-import {MessagesService,
-        ThreadsService,
-        UserService} from '../services/services';
+import {
+  MessagesService,
+  ThreadsService,
+  UserService
+} from '../services/services';
 import {FromNowPipe} from '../util/FromNowPipe';
 import {Observable} from 'rxjs';
 import {User, Thread, Message} from '../models';
