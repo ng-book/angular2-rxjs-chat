@@ -29,9 +29,9 @@ export class MessagesService {
     this.messages = this.updates
       // watch the updates and accumulate operations on the messages
       .scan((messages: Message[],
-              operation: IMessagesOperation) => {
-        return operation(messages);
-              },
+             operation: IMessagesOperation) => {
+               return operation(messages);
+             },
             initialMessages)
       // make sure we can share the most recent list of messages across anyone
       // who's interested in subscribing and cache the last known list of

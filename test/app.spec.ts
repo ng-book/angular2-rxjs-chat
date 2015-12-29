@@ -1,13 +1,16 @@
-/// <reference path="../app/typings/app.d.ts" />
-/// <reference path="../typings/jasmine/jasmine.d.ts" />
+import {
+  it,
+  beforeEachProviders
+} from 'angular2/testing';
 
-import {MessagesService} from "../app/ts/services/services";
-import {Calculator} from "calculator";
+// import {MessagesService} from '../app/ts/services/services';
+
+import {Calculator} from 'calculator';
 
 describe('Hello', () => {
 
   it('should test', () => {
-    let m = MessagesService;
+    // let m = MessagesService;
   });
 
   it('should add', () => {
