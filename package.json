@@ -20,6 +20,7 @@
     "optimist": "^0.6.1",
     "reflect-metadata": "^0.1.2",
     "rxjs": "5.0.0-beta.0",
+    "underscore": "^1.8.3",
     "uuid": "^2.0.1",
     "zone.js": "0.5.10"
   },
