@@ -4,7 +4,7 @@
   "description": "Chat App with Angular 2 and RxJS",
   "main": "index.js",
   "scripts": {
-    "server": "./node_modules/.bin/webpack-dev-server --display-reasons --display-chunks",
+    "go": "./node_modules/.bin/webpack-dev-server --display-reasons --display-chunks",
     "test": "karma start"
   },
   "author": "Nate Murray <nate@fullstack.io>",

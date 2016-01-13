@@ -32,7 +32,7 @@ cd angular2-rxjs-chat
 npm install
 
 # run
-npm run server
+npm run go
 ```
 
 Then visit [http://localhost:8080](http://localhost:8080) in your browser. 
@@ -165,7 +165,7 @@ npm install
 ## Running the App
 
 ```bash
-npm run server
+npm run go
 ```
 
 Then visit [http://localhost:8080](http://localhost:8080) in your browser. 
