@@ -1,3 +1,8 @@
+import {
+  it,
+  describe
+} from 'angular2/testing';
+
 import {MessagesService} from '../../app/ts/services/services';
 import {Message, User, Thread} from '../../app/ts/models';
 
