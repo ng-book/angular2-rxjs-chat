@@ -21,6 +21,13 @@ globalPolyfills()
 
 require('angular2/testing');
 
+var testing = require('angular2/testing');
+var browser = require('angular2/platform/testing/browser');
+
+testing.setBaseTestProviders(
+ browser.TEST_BROWSER_PLATFORM_PROVIDERS,
+ browser.TEST_BROWSER_APPLICATION_PROVIDERS);
+
 /*
   Ok, this is kinda crazy. We can use the the context method on
   require that webpack created in order to tell webpack
@@ -38,14 +45,6 @@ var appContext = require.context('./app', true, /\.spec\.ts/);
 // loop and require those spec files here
 appContext.keys().forEach(appContext);
 testContext.keys().forEach(testContext);
-
-// Select BrowserDomAdapter.
-// see https://github.com/AngularClass/angular2-webpack-starter/issues/124
-var domAdapter = require('angular2/src/platform/browser/browser_adapter');
-domAdapter.BrowserDomAdapter.makeCurrent();
-
-
-
 
 // these are helpers that typescript uses
 // I manually added them by opting out of EmitHelpers by noEmitHelpers: false
