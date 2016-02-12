@@ -7,10 +7,14 @@
     "go": "./node_modules/.bin/webpack-dev-server --display-reasons --display-chunks",
     "test": "karma start"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ng-book/angular2-rxjs-chat.git"
+  },
   "author": "Nate Murray <nate@fullstack.io>",
   "license": "MIT",
   "dependencies": {
-    "angular2": "2.0.0-beta.3",
+    "angular2": "2.0.0-beta.6",
     "base64id": "0.1.0",
     "es6-promise": "3.0.2",
     "es6-shim": "0.33.3",
@@ -22,7 +26,7 @@
     "rxjs": "5.0.0-beta.0",
     "underscore": "1.8.3",
     "uuid": "2.0.1",
-    "zone.js": "0.5.11"
+    "zone.js": "0.5.14"
   },
   "devDependencies": {
     "bootstrap-sass": "3.3.5",

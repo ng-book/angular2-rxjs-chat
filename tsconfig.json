@@ -9,6 +9,8 @@
     "sourceMap": true
   },
   "files": [
+    "node_modules/angular2/ts/typings/node/node.d.ts",
+    "node_modules/angular2/typings/browser.d.ts",
     "typings/tsd.d.ts",
     "app/ts/app.ts",
     "app/ts/services/services.ts",
