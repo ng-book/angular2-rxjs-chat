@@ -14,7 +14,7 @@
   "author": "Nate Murray <nate@fullstack.io>",
   "license": "MIT",
   "dependencies": {
-    "angular2": "2.0.0-beta.6",
+    "angular2": "2.0.0-beta.7",
     "base64id": "0.1.0",
     "es6-promise": "3.0.2",
     "es6-shim": "0.33.3",
@@ -23,10 +23,10 @@
     "moment": "2.10.6",
     "optimist": "0.6.1",
     "reflect-metadata": "0.1.2",
-    "rxjs": "5.0.0-beta.0",
+    "rxjs": "5.0.0-beta.2",
     "underscore": "1.8.3",
     "uuid": "2.0.1",
-    "zone.js": "0.5.14"
+    "zone.js": "0.5.15"
   },
   "devDependencies": {
     "bootstrap-sass": "3.3.5",
