@@ -52,7 +52,7 @@ class ChatThread implements OnInit {
 @Component({
   selector: 'chat-threads',
   directives: [ChatThread],
-  changeDetection: ChangeDetectionStrategy.OnPushObserve,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <!-- conversations -->
     <div class="row">

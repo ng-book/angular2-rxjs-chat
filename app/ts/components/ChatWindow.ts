@@ -65,7 +65,7 @@ export class ChatMessage implements OnInit {
   selector: 'chat-window',
   directives: [ChatMessage,
                FORM_DIRECTIVES],
-  changeDetection: ChangeDetectionStrategy.OnPushObserve,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="chat-window-container">
       <div class="chat-window">
