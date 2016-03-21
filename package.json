@@ -15,10 +15,10 @@
   "author": "Nate Murray <nate@fullstack.io>",
   "license": "MIT",
   "dependencies": {
-    "angular2": "^2.0.0-beta.11",
+    "angular2": "2.0.0-beta.11",
     "base64id": "0.1.0",
     "es6-promise": "3.0.2",
-    "es6-shim": "^0.35.0",
+    "es6-shim": "0.35.0",
     "es7-reflect-metadata": "1.2.0",
     "lodash": "3.10.1",
     "moment": "2.10.6",
