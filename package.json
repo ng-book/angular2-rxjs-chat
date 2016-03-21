@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "go": "./node_modules/.bin/webpack-dev-server --display-reasons --display-chunks",
+    "clean": "true",
     "test": "karma start"
   },
   "repository": {
