@@ -13,7 +13,7 @@ require('phantomjs-polyfill');
 require('es6-promise');
 require('es6-shim');
 require('es7-reflect-metadata/dist/browser');
-require('zone.js/dist/zone-microtask.js');
+require('zone.js/dist/zone.js');
 require('zone.js/dist/long-stack-trace-zone.js');
 require('zone.js/dist/jasmine-patch.js');
 // these are global EmitHelpers used by compiled typescript
