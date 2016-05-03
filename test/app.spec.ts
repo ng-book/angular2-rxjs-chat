@@ -3,7 +3,7 @@ import {
   describe,
   expect,
   beforeEachProviders
-} from 'angular2/testing';
+} from '@angular/core/testing';
 
 // import {MessagesService} from '../app/ts/services/services';
 
