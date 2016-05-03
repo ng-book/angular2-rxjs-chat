@@ -48,3 +48,4 @@ app/ts/util/FromNowPipe.js
 app/ts/util/RxPipe.js
 app/ts/util/util.js
 app/ts/util/uuid.js
+.tern-port

@@ -1,4 +1,4 @@
-import {Component, OnInit} from 'angular2/core';
+import {Component, OnInit} from '@angular/core';
 import {MessagesService, ThreadsService} from '../services/services';
 import {Message, Thread} from '../models';
 import * as _ from 'underscore';

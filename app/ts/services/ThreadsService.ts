@@ -1,4 +1,4 @@
-import {Injectable, bind} from 'angular2/core';
+import {Injectable, bind} from '@angular/core';
 import {Subject, BehaviorSubject, Observable} from 'rxjs';
 import {Thread, Message} from '../models';
 import {MessagesService} from './MessagesService';
