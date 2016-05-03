@@ -86,7 +86,7 @@ export class ChatMessage implements OnInit {
 
             <div class="panel-body msg-container-base">
               <chat-message
-                   *ngFor="#message of messages | async"
+                   *ngFor="let message of messages | async"
                    [message]="message">
               </chat-message>
             </div>

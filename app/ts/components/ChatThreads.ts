@@ -59,7 +59,7 @@ class ChatThread implements OnInit {
       <div class="conversation-wrap">
 
         <chat-thread
-             *ngFor="#thread of threads | async"
+             *ngFor="let thread of threads | async"
              [thread]="thread">
         </chat-thread>
 
