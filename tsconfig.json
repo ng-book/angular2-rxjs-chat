@@ -8,20 +8,16 @@
     "noEmitHelpers": false,
     "sourceMap": true
   },
-  "files": [
-    "node_modules/angular2/ts/typings/node/node.d.ts",
-    "node_modules/angular2/typings/browser.d.ts",
-    "typings/tsd.d.ts",
-    "app/ts/app.ts",
-    "app/ts/services/services.ts",
-    "app/ts/services/UserService.ts",
-    "app/ts/util/uuid.ts",
-    "app/ts/vendor.ts"
-  ],
+
   "filesGlob": [
     "./app/**/*.ts",
     "./test/**/*.ts",
     "!./node_modules/**/*.ts"
+  ],
+  "exclude": [
+    "typings/main.d.ts",
+    "typings/main",
+    "node_modules"
   ],
   "compileOnSave": false,
   "buildOnSave": false

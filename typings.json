@@ -1,0 +1,12 @@
+{
+  "name": "angular2-rxjs-chat",
+  "version": false,
+  "ambientDependencies": {
+    "core-js": "registry:dt/core-js#0.0.0+20160317120654",
+    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#8cf8164641be73e8f1e652c2a5b967c7210b6729",
+    "moment": "github:DefinitelyTyped/DefinitelyTyped/moment/moment.d.ts#b2345aee407127928f247165c91e18bd7dc1a14a",
+    "moment-node": "github:DefinitelyTyped/DefinitelyTyped/moment/moment-node.d.ts#b2345aee407127928f247165c91e18bd7dc1a14a",
+    "underscore": "github:DefinitelyTyped/DefinitelyTyped/underscore/underscore.d.ts#38fb591c6eba840e0b53d1110302b8e4fb04651c",
+    "jasmine": "github:DefinitelyTyped/DefinitelyTyped/jasmine/jasmine.d.ts#86dbea8fc37d9473fee465da4f0a21bea4f8cbd9"
+  }
+}
