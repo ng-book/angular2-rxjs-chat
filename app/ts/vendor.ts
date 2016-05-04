@@ -16,3 +16,4 @@ import '@angular/http';
 
 // RxJS
 import 'rxjs';
+import 'ts-helpers';
