@@ -6,7 +6,7 @@
   "scripts": {
     "go": "./node_modules/.bin/webpack-dev-server --display-reasons --display-chunks",
     "clean": "true",
-    "test": "karma start"
+    "test": "karma start --single-run"
   },
   "repository": {
     "type": "git",
@@ -15,13 +15,12 @@
   "author": "Nate Murray <nate@fullstack.io>",
   "license": "MIT",
   "dependencies": {
-    "@angular/common": "2.0.0-rc.2",
-    "@angular/compiler": "2.0.0-rc.2",
-    "@angular/core": "2.0.0-rc.2",
-    "@angular/http": "2.0.0-rc.2",
-    "@angular/platform-browser": "2.0.0-rc.2",
-    "@angular/platform-browser-dynamic": "2.0.0-rc.2",
-    "@angular/router": "2.0.0-rc.2",
+    "@angular/common": "2.0.0-rc.3",
+    "@angular/compiler": "2.0.0-rc.3",
+    "@angular/core": "2.0.0-rc.3",
+    "@angular/http": "2.0.0-rc.3",
+    "@angular/platform-browser": "2.0.0-rc.3",
+    "@angular/platform-browser-dynamic": "2.0.0-rc.3",
     "base64id": "0.1.0",
     "core-js": "^2.2.2",
     "lodash": "3.10.1",
