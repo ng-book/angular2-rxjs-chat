@@ -1,10 +1,3 @@
-import {
-  it,
-  describe,
-  expect,
-  beforeEachProviders
-} from '@angular/core/testing';
-
 // import {MessagesService} from '../app/ts/services/services';
 
 import {Calculator} from 'calculator';

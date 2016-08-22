@@ -7,9 +7,11 @@
  */
 
 import {
+  NgModule,
   Component
 } from '@angular/core';
-import { bootstrap } from '@angular/platform-browser-dynamic';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 /*
  * Components
@@ -63,7 +65,15 @@ class ChatApp {
   }
 }
 
-bootstrap(ChatApp, [ servicesInjectables, utilInjectables ]);
+@NgModule({
+  declarations: [ ChatApp ],
+  imports: [ BrowserModule ],
+  bootstrap: [ ChatApp ],
+  providers: [ servicesInjectables, utilInjectables ]
+})
+export class ChatAppModule {}
+
+platformBrowserDynamic().bootstrapModule(ChatAppModule);
 
 // --------------------
 // You can ignore these 'require' statements. The code will work without them.
