@@ -4,7 +4,6 @@ import {
   ElementRef,
   ChangeDetectionStrategy
 } from '@angular/core';
-import {FORM_DIRECTIVES} from '@angular/common';
 import {
   MessagesService,
   ThreadsService,
@@ -63,8 +62,6 @@ export class ChatMessage implements OnInit {
 
 @Component({
   selector: 'chat-window',
-  directives: [ChatMessage,
-               FORM_DIRECTIVES],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="chat-window-container">

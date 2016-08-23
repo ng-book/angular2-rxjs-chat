@@ -12,18 +12,27 @@ import {
 } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import {
+  FormsModule
+} from '@angular/forms';
 
 /*
  * Components
  */
 import {ChatNavBar} from './components/ChatNavBar';
-import {ChatThreads} from './components/ChatThreads';
-import {ChatWindow} from './components/ChatWindow';
+import {
+  ChatThreads,
+  ChatThread
+  } from './components/ChatThreads';
+import {
+  ChatWindow,
+  ChatMessage
+  } from './components/ChatWindow';
 
 /*
  * Injectables
  */
-import { servicesInjectables } from './services/services';
+import {servicesInjectables} from './services/services';
 import {utilInjectables} from './util/util';
 
 /*
@@ -44,9 +53,6 @@ require('../css/styles.scss');
 
 @Component({
   selector: 'chat-app',
-  directives: [ChatNavBar,
-               ChatThreads,
-               ChatWindow],
   template: `
   <div>
     <nav-bar></nav-bar>
@@ -66,8 +72,18 @@ class ChatApp {
 }
 
 @NgModule({
-  declarations: [ ChatApp ],
-  imports: [ BrowserModule ],
+  declarations: [
+    ChatApp,
+    ChatNavBar,
+    ChatThreads,
+    ChatThread,
+    ChatWindow,
+    ChatMessage
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule
+  ],
   bootstrap: [ ChatApp ],
   providers: [ servicesInjectables, utilInjectables ]
 })

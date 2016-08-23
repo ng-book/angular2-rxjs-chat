@@ -26,7 +26,7 @@ import {Thread} from '../models';
   </div>
   `
 })
-class ChatThread implements OnInit {
+export class ChatThread implements OnInit {
   thread: Thread;
   selected: boolean = false;
 
@@ -51,7 +51,6 @@ class ChatThread implements OnInit {
 
 @Component({
   selector: 'chat-threads',
-  directives: [ChatThread],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <!-- conversations -->
