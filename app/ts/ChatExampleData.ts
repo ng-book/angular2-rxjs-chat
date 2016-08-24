@@ -106,7 +106,7 @@ export class ChatExampleData {
 
         if (isNaN(waitTime)) {
           waitTime = 0;
-          reply = `I didn\'t understand ${message}. Try sending me a number`;
+          reply = `I didn\'t understand ${message.text}. Try sending me a number`;
         } else {
           reply = `I waited ${waitTime} seconds to send you this.`;
         }
