@@ -9,14 +9,12 @@ import {
   ThreadsService,
   UserService
 } from '../services/services';
-import {FromNowPipe} from '../util/FromNowPipe';
 import {Observable} from 'rxjs';
 import {User, Thread, Message} from '../models';
 
 @Component({
   inputs: ['message'],
   selector: 'chat-message',
-  pipes: [FromNowPipe],
   template: `
   <div class="msg-container"
        [ngClass]="{'base-sent': !incoming, 'base-receive': incoming}">
@@ -29,7 +27,7 @@ import {User, Thread, Message} from '../models';
     <div class="messages"
       [ngClass]="{'msg-sent': !incoming, 'msg-receive': incoming}">
       <p>{{message.text}}</p>
-      <time>{{message.sender}} • {{message.sentAt | fromNow}}</time>
+      <p class="time">{{message.sender}} • {{message.sentAt | fromNow}}</p>
     </div>
 
     <div class="avatar"

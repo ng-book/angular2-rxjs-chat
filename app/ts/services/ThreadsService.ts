@@ -1,4 +1,4 @@
-import {Injectable, bind} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Subject, BehaviorSubject, Observable} from 'rxjs';
 import {Thread, Message} from '../models';
 import {MessagesService} from './MessagesService';
@@ -73,5 +73,5 @@ export class ThreadsService {
 }
 
 export var threadsServiceInjectables: Array<any> = [
-  bind(ThreadsService).toClass(ThreadsService)
+  ThreadsService
 ];

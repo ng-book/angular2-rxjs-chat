@@ -166,7 +166,7 @@
         font-size: 13px;
         margin: 0 0 0.2rem 0;
       }
-      time {
+      .time {
         font-size: 11px;
         color: #ccc;
       }
@@ -227,7 +227,7 @@
     }
   }
 
-  .msg-sent > time {
+  .msg-sent > .time {
     float: right;
   }
 

@@ -1,4 +1,4 @@
-import {Pipe, bind} from '@angular/core';
+import {Pipe} from '@angular/core';
 import * as moment from 'moment';
 
 @Pipe({
@@ -11,6 +11,6 @@ export class FromNowPipe {
 }
 
 export var fromNowPipeInjectables: Array<any> = [
-  bind(FromNowPipe).toValue(FromNowPipe)
+  FromNowPipe
 ];
 

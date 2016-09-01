@@ -1,4 +1,4 @@
-import {Injectable, bind} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Subject, Observable} from 'rxjs';
 import {User, Thread, Message} from '../models';
 
@@ -101,5 +101,5 @@ export class MessagesService {
 }
 
 export var messagesServiceInjectables: Array<any> = [
-  bind(MessagesService).toClass(MessagesService)
+  MessagesService
 ];

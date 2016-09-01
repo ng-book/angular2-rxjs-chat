@@ -78,14 +78,15 @@ class ChatApp {
     ChatThreads,
     ChatThread,
     ChatWindow,
-    ChatMessage
+    ChatMessage,
+    utilInjectables
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
   bootstrap: [ ChatApp ],
-  providers: [ servicesInjectables, utilInjectables ]
+  providers: [ servicesInjectables ]
 })
 export class ChatAppModule {}
 

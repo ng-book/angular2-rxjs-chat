@@ -1,4 +1,4 @@
-import {Injectable, bind} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Subject, BehaviorSubject} from 'rxjs';
 import {User} from '../models';
 
@@ -17,5 +17,5 @@ export class UserService {
 }
 
 export var userServiceInjectables: Array<any> = [
-  bind(UserService).toClass(UserService)
+  UserService
 ];
