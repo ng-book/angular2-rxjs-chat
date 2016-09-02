@@ -9,19 +9,25 @@
  * Thanks to @AngularClass for figuring this stuff out
 */
 Error.stackTraceLimit = Infinity;
-require('phantomjs-polyfill');
+
 require('core-js');
+require('phantomjs-polyfill');
 require('ts-helpers');
-require('zone.js/dist/zone.js');
-require('zone.js/dist/long-stack-trace-zone.js');
-require('zone.js/dist/jasmine-patch.js');
-require('@angular/core/testing');
+require('zone.js/dist/zone');
+require('zone.js/dist/long-stack-trace-zone');
+require('zone.js/dist/async-test');
+require('zone.js/dist/fake-async-test');
+require('zone.js/dist/sync-test');
+require('zone.js/dist/proxy');
+require('zone.js/dist/jasmine-patch');
+
 var testing = require('@angular/core/testing');
 var browser = require('@angular/platform-browser-dynamic/testing');
 
-testing.setBaseTestProviders(
- browser.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
- browser.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
+testing.TestBed.initTestEnvironment(
+  browser.BrowserDynamicTestingModule,
+  browser.platformBrowserDynamicTesting()
+);
 
 /*
   Use the the context method on require that webpack created in order to tell
