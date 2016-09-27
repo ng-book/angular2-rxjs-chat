@@ -49,7 +49,7 @@ import {ChatExampleData} from './ChatExampleData';
 /*
  * Webpack
  */
-require('../css/styles.scss');
+require('../css/styles.css');
 
 @Component({
   selector: 'chat-app',
