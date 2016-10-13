@@ -63,7 +63,7 @@
     "script-loader": "0.6.1",
     "style-loader": "0.12.3",
     "traceur-loader": "0.6.3",
-    "ts-helpers": "^1.1.1",
+    "ts-helpers": "1.1.1",
     "ts-loader": "0.7.2",
     "tslint-loader": "1.0.1",
     "typescript": "1.7.3",
