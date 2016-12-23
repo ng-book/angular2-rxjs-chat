@@ -5,7 +5,7 @@ load "${NGBOOK_ROOT}/scripts/bats/fullstack.bats"
 load '/usr/local/lib/bats-support/load.bash'
 load '/usr/local/lib/bats-assert/load.bash'
 
-@test "forms e2e tests pass" {
+@test "angular2-rxjs-chat e2e tests pass" {
   cd $DIR
   run ./node_modules/.bin/protractor
   assert_output --partial 'SUCCESS'
