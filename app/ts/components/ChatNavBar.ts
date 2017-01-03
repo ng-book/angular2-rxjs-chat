@@ -45,6 +45,9 @@ export class ChatNavBar implements OnInit {
               let messageIsInCurrentThread: boolean = m.thread &&
                 currentThread &&
                 (currentThread.id === m.thread.id);
+              // note: in a "real" app you should also exclude 
+              // messages that were authored by the current user b/c they've
+              // already been "read"
               if (m && !m.isRead && !messageIsInCurrentThread) {
                 sum = sum + 1;
               }
