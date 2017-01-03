@@ -1,7 +1,7 @@
 import { Angular2AppPage } from './app.po';
 import { browser } from 'protractor';
 
-describe('ng-book redux-chat Example App', function() {
+describe('ng-book rxjs-chat Example App', function() {
   let page: Angular2AppPage;
 
   beforeEach(() => {
