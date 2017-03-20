@@ -1,20 +1,20 @@
 <p align="center">
-  <img src="app/images/logos/Angular2RxJSChatHeaderImage.png" alt="Angular 2 RxJS Chat" width="500" height="300"/>
+  <img src="src/assets/images/logos/Angular2RxJSChatHeaderImage.png" alt="Angular 2 RxJS Chat" width="500" height="300"/>
 </p>
 
 # Angular 2 RxJS Chat [![Join the chat at https://gitter.im/ng-book/ng-book](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ng-book/ng-book?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-> An Angular 2 chat app using [Angular 2](https://angular.io/), [RxJS](https://github.com/Reactive-Extensions/RxJS), [Webpack](https://webpack.github.io/), [TypeScript](http://www.typescriptlang.org/), Services, Injectables, [Karma](http://karma-runner.github.io/), Forms, [SCSS](http://sass-lang.com/), and [tslint](http://palantir.github.io/tslint/) by the [ng-book 2 team](https://ng-book.com/2)
+> An Angular 2 chat app using [Angular 2](https://angular.io/), [RxJS](https://github.com/Reactive-Extensions/RxJS), [Angular CLI](https://github.com/angular/angular-cli), [Webpack](https://webpack.github.io/), [TypeScript](http://www.typescriptlang.org/), Services, Injectables, [Karma](http://karma-runner.github.io/), Forms, and [tslint](http://palantir.github.io/tslint/) by the [ng-book 2 team](https://ng-book.com/2)
 
 This repo shows an example chat application using RxJS and Angular 2. The goal is to show how to use the Observables data architecture pattern within Angular 2. It also features:
 
-* Webpack configuration with TypeScript, Karma, SCSS, and tslint
+* Angular CLI, which configures Webpack with TypeScript, Karma, and tslint
 * Writing async components that work with RxJS
 * How to write injectable services in Angular 2
 * And much more
 
 <p align="center">
-  <img src="app/images/readme/full-chat-preview.png" alt="Angular 2 RxJS Chat" width="800" height="577"/>
+  <img src="src/assets/images/readme/full-chat-preview.png" alt="Angular 2 RxJS Chat" width="800" height="577"/>
 </p>
 
 > Try the live [demo here](http://rxjs.ng-book.com)
@@ -23,51 +23,51 @@ This repo shows an example chat application using RxJS and Angular 2. The goal i
 
 ```bash
 # clone the repo
-git clone https://github.com/ng-book/angular2-rxjs-chat.git 
+git clone https://github.com/ng-book/angular2-rxjs-chat.git
 
 # change into the repo directory
 cd angular2-rxjs-chat
 
-# install 
+# install
 npm install
 
 # run
-npm run go
+npm start
 ```
 
-Then visit [http://localhost:8080](http://localhost:8080) in your browser. 
+Then visit [http://localhost:4200](http://localhost:4200) in your browser.
 
 ## Architecture
 
 The app has three models:
 
-* [`Message`](app/ts/models.ts#L27) - holds individual chat messages
-* [`Thread`](app/ts/models.ts#L12) - holds metadata for a group of `Message`s
-* [`User`](app/ts/models.ts#L3) - holds data about an individual user
+* [`Message`](src/app/message/message.model.ts) - holds individual chat messages
+* [`Thread`](src/app/thread/thread.model.ts) - holds metadata for a group of `Message`s
+* [`User`](src/app/user/user.model.ts) - holds data about an individual user
 
 <p align="center">
-  <img src="app/images/readme/rx-chat-models.png" alt="Model Diagram" width="500" height="119"/>
+  <img src="src/assets/images/readme/rx-chat-models.png" alt="Model Diagram" width="500" height="119"/>
 </p>
 
 And there are three services, one for each model:
 
-* [`MessagesService`](app/ts/services/MessagesService.ts) - manages streams of `Message`s
-* [`ThreadsService`](app/ts/services/ThreadsService.ts) - manages streams of `Thread`s
-* [`UserService`](app/ts/services/UserService.ts) - manages a stream of the current `User`
+* [`MessagesService`](src/app/message/messages.service.ts) - manages streams of `Message`s
+* [`ThreadsService`](src/app/thread/threads.service.ts) - manages streams of `Thread`s
+* [`UserService`](src/app/user/users.service.ts) - manages a stream of the current `User`
 
 There are also three top-level components:
 
-* [`ChatNavBar`](app/ts/components/ChatNavBar.ts) - for the top navigation bar and unread messages count
-* [`ChatThreads`](app/ts/components/ChatThreads.ts) - for our clickable list of threads 
-* [`ChatWindow`](app/ts/components/ChatWindow.ts) - where we hold our current conversation
+* [`ChatNavBar`](src/app/chat-nav-bar/chat-nav-bar.component.ts) - for the top navigation bar and unread messages count
+* [`ChatThreads`](src/app/chat-threads/chat-threads.component.ts) - for our clickable list of threads
+* [`ChatWindow`](src/app/chat-window/chat-window.component.ts) - where we hold our current conversation
 
 <p align="center">
-  <img src="app/images/readme/rx-chat-top-level-components.png" alt="Angular 2 RxJS Chat" width="500" height="360"/>
+  <img src="src/assets/images/readme/rx-chat-top-level-components.png" alt="Angular 2 RxJS Chat" width="500" height="360"/>
 </p>
 
 ## Services Manage Observables
 
-Each service publishes data as RxJS streams. The service clients subscribe to these streams to be notified of changes. 
+Each service publishes data as RxJS streams. The service clients subscribe to these streams to be notified of changes.
 
 The `MessagesService` is the backbone of the application. All new messages are added to the `newMessages` stream and, more or less, all streams are derived from listening to `newMessages`. Even the `Thread`s exposed by the `ThreadsService` are created by listening to the stream of `Message`s.
 
@@ -87,63 +87,9 @@ This app implements a few simple chat bots. For instance:
 * Reversing bot
 * Waiting bot
 
-<img src="app/images/readme/rx-chat-echo-bot.png" alt="Angular 2 RxJS Chat Bots" width="346" height="348"/>
+<img src="src/assets/images/readme/rx-chat-echo-bot.png" alt="Angular 2 RxJS Chat Bots" width="346" height="348"/>
 
 <div style="clear:both"></div>
-
-## File Structure
-
-Here's an overview of how the files are laid out in this project:
-
-```
-angular2-rxjs-chat/
-├── Makefile                        * Easy access to common tasks
-├── README.md                       * This file
-├── app/                            * Where our application code is stored
-│   ├── css/                        * Contains our CSS and SCSS files
-|   | 
-│   ├── images/                     * Stores app images
-|   | 
-│   ├── index.html                  * HTML entry point
-|   | 
-│   ├── ts/                         * All of our TypeScript is here
-|   |   |
-│   │   ├── ChatExampleData.ts      * Contains our bots and sample data
-|   |   |
-│   │   ├── app.ts                  * App entry point
-|   |   |
-│   │   ├── components/             * Components go here
-|   |   |   |
-│   │   │   ├── ChatNavBar.ts       * Nav Bar Component
-│   │   │   ├── ChatThreads.ts      * Threads Component
-│   │   │   └── ChatWindow.ts       * Chat Window Component
-|   |   |
-│   │   ├── models.ts               * Our models go here
-|   |   |
-│   │   ├── services/               * Services here
-|   |   |   |
-│   │   │   ├── MessagesService.ts  * Manages our messages
-│   │   │   ├── ThreadsService.ts   * Exposes our threads
-│   │   │   ├── UserService.ts      * Manage our user
-│   │   │   └── services.ts         * Exports all services
-|   |   |
-│   │   └── util/                   * Pipes and various utilities
-|   | 
-│   ├── typings/                    * Self-managed type definitions here
-|   | 
-│   └── vendor.js                   * Vendor js requires for webpack
-|   | 
-├── karma.conf.js                   * Our unit testing configuration
-├── package.json                    * Our javascript dependencies
-├── test/                           * Our tests go here
-├── test.bundle.js                  * Some hacks to get TypeScript tests
-├── tsconfig.json                   * Configures the TypeScript compiler
-├── tsd.json                        * Configures tsd (type definitions packages)
-├── tslint.json                     * Configures our TypeScript linter 
-├── typings/                        * tsd managed typings
-├── vendor/                         * Various vendored code
-└── webpack.config.js               * Our Webpack configuration
-```
 
 ## Detailed Installation
 
@@ -168,7 +114,7 @@ npm install
 npm run go
 ```
 
-Then visit [http://localhost:8080](http://localhost:8080) in your browser. 
+Then visit [http://localhost:4200](http://localhost:4200) in your browser.
 
 ## Running the Tests
 
@@ -184,7 +130,7 @@ There are two big changes we plan to make to this repo:
 
 ### 1. Add HTTP Requests
 
-Currently the bots are all client-side and there are no HTTP requests involved in the chats. 
+Currently the bots are all client-side and there are no HTTP requests involved in the chats.
 
 We will move the chat bots to a server and integrate API requests into this project once the Angular 2 HTTP client development has settled down.
 
@@ -211,7 +157,7 @@ ___
 # ng-book 2
 
 <a href="https://ng-book.com/2">
-<img align="right" src="app/images/readme/ng-book-2-as-book-cover-pigment.png" alt="ng-book 2" width="148" height="250" />
+<img align="right" src="src/assets/images/readme/ng-book-2-as-book-cover-pigment.png" alt="ng-book 2" width="148" height="250" />
 </a>
 
 This repo was written and is maintained by the [ng-book 2](https://ng-book.com/2) team. In the book we talk about each line of code in this app and explain why it's there and how it works.
@@ -222,5 +168,3 @@ This app is only one of several apps we have in the book. If you're looking to l
 
 ## License
  [MIT](/LICENSE.md)
-
-

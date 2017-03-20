@@ -1,0 +1,13 @@
+<div class="media conversation">
+  <div class="pull-left">
+    <img class="media-object avatar"
+         src="{{thread.avatarSrc}}">
+  </div>
+  <div class="media-body">
+    <h5 class="media-heading contact-name">{{thread.name}}
+      <span *ngIf="selected">&bull;</span>
+    </h5>
+    <small class="message-preview">{{thread.lastMessage.text}}</small>
+  </div>
+  <a (click)="clicked($event)" class="div-link">Select</a>
+</div>

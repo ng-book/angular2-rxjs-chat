@@ -1,36 +1,36 @@
-import { Angular2AppPage } from './app.po';
+import { AngularReduxChatPage } from './app.po';
 import { browser } from 'protractor';
 
-describe('ng-book rxjs-chat Example App', function() {
-  let page: Angular2AppPage;
+describe('angular-redux-chat App', () => {
+  let page: AngularReduxChatPage;
 
   beforeEach(() => {
-    page = new Angular2AppPage();
+    page = new AngularReduxChatPage();
   });
 
   it('should load the page', () => {
     page.navigateTo();
 
-    expect(page.unreadCount()).toMatch(`4`);
-
-    page.clickThread(1);
     expect(page.unreadCount()).toMatch(`3`);
 
-    page.clickThread(2);
+    page.clickThread(1);
     expect(page.unreadCount()).toMatch(`2`);
+
+    page.clickThread(2);
+    expect(page.unreadCount()).toMatch(`1`);
 
     page.clickThread(3);
     expect(page.unreadCount()).toMatch(`0`);
 
-    page.clickThread(2);
     page.sendMessage('3');
     expect(page.unreadCount()).toMatch(`0`);
 
-    page.clickThread(1);
+    page.clickThread(0);
+    // expect(page.unreadCount()).toMatch(`1`);
+    // expect(page.getConversationText(3)).toContain(`I waited 3 seconds`);
 
     browser.sleep(5000).then(function() {
-      expect(page.getConversationText(0)).toContain(`I waited 3 seconds`);
+      expect(page.getConversationText(3)).toContain(`I waited 3 seconds`);
     });
   });
-
 });
