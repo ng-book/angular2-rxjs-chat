@@ -4,10 +4,8 @@ import {
   ElementRef,
   OnInit
 } from '@angular/core';
-import { Store } from 'redux';
 import { Observable } from 'rxjs';
 
-import { AppStore } from '../app.store';
 import { User } from '../user/user.model';
 import { UsersService } from '../user/users.service';
 import { Thread } from '../thread/thread.model';
