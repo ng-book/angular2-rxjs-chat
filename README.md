@@ -23,19 +23,19 @@ This repo shows an example chat application using RxJS and Angular 2. The goal i
 
 ```bash
 # clone the repo
-git clone https://github.com/ng-book/angular2-rxjs-chat.git 
+git clone https://github.com/ng-book/angular2-rxjs-chat.git
 
 # change into the repo directory
 cd angular2-rxjs-chat
 
-# install 
+# install
 npm install
 
 # run
 npm run go
 ```
 
-Then visit [http://localhost:8080](http://localhost:8080) in your browser. 
+Then visit [http://localhost:8080](http://localhost:8080) in your browser.
 
 ## Architecture
 
@@ -58,7 +58,7 @@ And there are three services, one for each model:
 There are also three top-level components:
 
 * [`ChatNavBar`](app/ts/components/ChatNavBar.ts) - for the top navigation bar and unread messages count
-* [`ChatThreads`](app/ts/components/ChatThreads.ts) - for our clickable list of threads 
+* [`ChatThreads`](app/ts/components/ChatThreads.ts) - for our clickable list of threads
 * [`ChatWindow`](app/ts/components/ChatWindow.ts) - where we hold our current conversation
 
 <p align="center">
@@ -67,7 +67,7 @@ There are also three top-level components:
 
 ## Services Manage Observables
 
-Each service publishes data as RxJS streams. The service clients subscribe to these streams to be notified of changes. 
+Each service publishes data as RxJS streams. The service clients subscribe to these streams to be notified of changes.
 
 The `MessagesService` is the backbone of the application. All new messages are added to the `newMessages` stream and, more or less, all streams are derived from listening to `newMessages`. Even the `Thread`s exposed by the `ThreadsService` are created by listening to the stream of `Message`s.
 
@@ -101,11 +101,11 @@ angular2-rxjs-chat/
 ├── README.md                       * This file
 ├── app/                            * Where our application code is stored
 │   ├── css/                        * Contains our CSS and SCSS files
-|   | 
+|   |
 │   ├── images/                     * Stores app images
-|   | 
+|   |
 │   ├── index.html                  * HTML entry point
-|   | 
+|   |
 │   ├── ts/                         * All of our TypeScript is here
 |   |   |
 │   │   ├── ChatExampleData.ts      * Contains our bots and sample data
@@ -128,18 +128,18 @@ angular2-rxjs-chat/
 │   │   │   └── services.ts         * Exports all services
 |   |   |
 │   │   └── util/                   * Pipes and various utilities
-|   | 
+|   |
 │   ├── typings/                    * Self-managed type definitions here
-|   | 
+|   |
 │   └── vendor.js                   * Vendor js requires for webpack
-|   | 
+|   |
 ├── karma.conf.js                   * Our unit testing configuration
 ├── package.json                    * Our javascript dependencies
 ├── test/                           * Our tests go here
 ├── test.bundle.js                  * Some hacks to get TypeScript tests
 ├── tsconfig.json                   * Configures the TypeScript compiler
 ├── tsd.json                        * Configures tsd (type definitions packages)
-├── tslint.json                     * Configures our TypeScript linter 
+├── tslint.json                     * Configures our TypeScript linter
 ├── typings/                        * tsd managed typings
 ├── vendor/                         * Various vendored code
 └── webpack.config.js               * Our Webpack configuration
@@ -168,7 +168,7 @@ npm install
 npm run go
 ```
 
-Then visit [http://localhost:8080](http://localhost:8080) in your browser. 
+Then visit [http://localhost:8080](http://localhost:8080) in your browser.
 
 ## Running the Tests
 
@@ -184,7 +184,7 @@ There are two big changes we plan to make to this repo:
 
 ### 1. Add HTTP Requests
 
-Currently the bots are all client-side and there are no HTTP requests involved in the chats. 
+Currently the bots are all client-side and there are no HTTP requests involved in the chats.
 
 We will move the chat bots to a server and integrate API requests into this project once the Angular 2 HTTP client development has settled down.
 
@@ -222,5 +222,3 @@ This app is only one of several apps we have in the book. If you're looking to l
 
 ## License
  [MIT](/LICENSE.md)
-
-
