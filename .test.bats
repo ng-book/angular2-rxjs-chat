@@ -7,7 +7,7 @@ load "${NGBOOK_ROOT}/scripts/bats-assert/load.bash"
 
 @test "angular-rxjs-chat unit tests pass" {
  cd $DIR
- run npm run test
+ run ng test --single-run
  assert_output --partial 'SUCCESS'
 }
 
