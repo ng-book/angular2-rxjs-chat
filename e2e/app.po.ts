@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class AngularReduxChatPage {
+export class AngularChatPage {
   navigateTo() {
     return browser.get('/');
   }
