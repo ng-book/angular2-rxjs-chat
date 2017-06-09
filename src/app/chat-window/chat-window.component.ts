@@ -2,7 +2,8 @@ import {
   Component,
   Inject,
   ElementRef,
-  OnInit
+  OnInit,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -16,7 +17,8 @@ import { MessagesService } from '../message/messages.service';
 @Component({
   selector: 'chat-window',
   templateUrl: './chat-window.component.html',
-  styleUrls: ['./chat-window.component.css']
+  styleUrls: ['./chat-window.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChatWindowComponent implements OnInit {
   messages: Observable<any>;
